@@ -22,7 +22,6 @@
             <fieldset>
                 <legend><?= __('Edit Date') ?></legend>
                 <?php
-                    echo $this->Form->control('user_id', ['options' => $users]);
                     echo $this->Form->control('slam_id', ['options' => $slams]);
                     echo $this->Form->control('title');
                     echo $this->Form->control('slug');

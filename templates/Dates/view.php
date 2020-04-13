@@ -19,24 +19,12 @@
             <h3><?= h($date->title) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('User') ?></th>
-                    <td><?= $date->has('user') ? $this->Html->link($date->user->id, ['controller' => 'Users', 'action' => 'view', $date->user->id]) : '' ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Slam') ?></th>
-                    <td><?= $date->has('slam') ? $this->Html->link($date->slam->title, ['controller' => 'Slams', 'action' => 'view', $date->slam->id]) : '' ?></td>
+                    <td><?= $date->has('slam') ? $this->Html->link($date->slam->title, ['controller' => 'Slams', 'action' => 'view', $date->slam->slug]) : '' ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Title') ?></th>
                     <td><?= h($date->title) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Slug') ?></th>
-                    <td><?= h($date->slug) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($date->id) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Starttime') ?></th>

@@ -36,15 +36,15 @@ class SlamsController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Slam id.
+     * @param string|null $slug Slam slug.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($slug = null)
     {
-        $slam = $this->Slams->get($id, [
+        $slam = $this->Slams->findBySlug($slug, [
             'contain' => ['Users', 'Tags', 'Dates'],
-        ]);
+        ])->firstOrFail();
 
         $this->set('slam', $slam);
     }

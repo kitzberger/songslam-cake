@@ -19,16 +19,8 @@
             <h3><?= h($slam->title) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('User') ?></th>
-                    <td><?= $slam->has('user') ? $this->Html->link($slam->user->id, ['controller' => 'Users', 'action' => 'view', $slam->user->id]) : '' ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Title') ?></th>
                     <td><?= h($slam->title) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Slug') ?></th>
-                    <td><?= h($slam->slug) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Venue') ?></th>
@@ -53,10 +45,6 @@
                 <tr>
                     <th><?= __('State') ?></th>
                     <td><?= h($slam->state) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($slam->id) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>

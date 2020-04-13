@@ -7,6 +7,8 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Utility\Text;
+use Cake\Event\EventInterface;
 
 /**
  * Slams Model
@@ -84,7 +86,7 @@ class SlamsTable extends Table
         $validator
             ->scalar('slug')
             ->maxLength('slug', 191)
-            ->requirePresence('slug', 'create')
+            ->requirePresence('slug', 'update')
             ->notEmptyString('slug')
             ->add('slug', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
@@ -148,5 +150,14 @@ class SlamsTable extends Table
         $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
+    }
+
+    public function beforeSave(EventInterface $event, $entity, $options)
+    {
+        if ($entity->isNew() && !$entity->slug) {
+            $sluggedTitle = Text::slug($entity->title);
+            // trim slug to maximum length defined in schema
+            $entity->slug = strtolower(substr($sluggedTitle, 0, 191));
+        }
     }
 }

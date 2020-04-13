@@ -17,17 +17,16 @@
             <fieldset>
                 <legend><?= __('Add Slam') ?></legend>
                 <?php
-                    echo $this->Form->control('user_id', ['options' => $users]);
+                    echo $this->Form->hidden('user_id', ['value' => $currentUser->getIdentifier()]);
                     echo $this->Form->control('title');
-                    echo $this->Form->control('slug');
-                    echo $this->Form->control('description');
                     echo $this->Form->control('venue');
+                    echo $this->Form->control('description');
                     echo $this->Form->control('address');
-                    echo $this->Form->control('city');
                     echo $this->Form->control('zip');
+                    echo $this->Form->control('city');
+                    echo $this->Form->control('state');
                     echo $this->Form->control('contact');
                     echo $this->Form->control('www');
-                    echo $this->Form->control('state');
                     echo $this->Form->control('tags._ids', ['options' => $tags]);
                 ?>
             </fieldset>

@@ -22,7 +22,7 @@
             <fieldset>
                 <legend><?= __('Edit Slam') ?></legend>
                 <?php
-                    echo $this->Form->control('user_id', ['options' => $users]);
+                    echo $this->Form->hidden('user_id', ['value' => $currentUser->getIdentifier()]);
                     echo $this->Form->control('title');
                     echo $this->Form->control('slug');
                     echo $this->Form->control('description');
