@@ -113,6 +113,20 @@ class DatesTable extends Table
         return $rules;
     }
 
+    public function beforeMarshal(EventInterface $event, ArrayObject $data, ArrayObject $options)
+    {
+        if (isset($data['starttime'])) {
+            if (preg_match('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/', $data['starttime'])) {
+                $data['starttime'] .= ':00';
+            }
+        }
+        if (isset($data['endtime'])) {
+            if (preg_match('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/', $data['endtime'])) {
+                $data['endtime'] .= ':00';
+            }
+        }
+    }
+
     public function beforeSave(EventInterface $event, $entity, $options)
     {
         if ($entity->isNew() && !$entity->slug) {
