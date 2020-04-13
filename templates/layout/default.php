@@ -46,17 +46,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <?php
                 if ($currentUser) {
                     echo '<span>' . __('Logged in as: ') . $currentUser->get('email') . '</span>';
-                    echo '<span>|</span>';
-                    echo $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout'], ['class' => 'danger']);
+                    echo ' <span>|</span>';
+                    echo $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']);
                 } else {
                     echo __('Not logged in yet.');
+                    echo ' <span>|</span>';
+                    echo $this->Html->link(__('Login'), ['controller' => 'Users', 'action' => 'login']);
                 }
             ?>
             <?= '<span>|</span>'; ?>
-            <?= $this->Html->link(__('Users'), ['controller' => 'Users', 'action' => 'index'], []) ?>
-            <?= $this->Html->link(__('Slams'), ['controller' => 'Slams', 'action' => 'index'], []) ?>
-            <?= $this->Html->link(__('Dates'), ['controller' => 'Dates', 'action' => 'index'], []) ?>
-            <?= $this->Html->link(__('Tags'),  ['controller' => 'Tags',  'action' => 'index'], []) ?>
+            <?= $currentUser ? $this->Html->link(__('Users'), ['controller' => 'Users', 'action' => 'index'], ['class' => $controller==='Users'?'active':'']) : '' ?>
+            <?= $this->Html->link(__('Slams'), ['controller' => 'Slams', 'action' => 'index'], ['class' => $controller==='Slams'?'active':'']) ?>
+            <?= $this->Html->link(__('Dates'), ['controller' => 'Dates', 'action' => 'index'], ['class' => $controller==='Dates'?'active':'']) ?>
+            <?= $currentUser ? $this->Html->link(__('Tags'),  ['controller' => 'Tags',  'action' => 'index'], ['class' => $controller==='Tags'?'active':'']) : '' ?>
         </div>
     </nav>
     <main class="main">

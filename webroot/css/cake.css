@@ -51,6 +51,9 @@ th {
 .top-nav-links a {
     margin: 0 0.5rem;
 }
+.top-nav-links a.active {
+    border-bottom: 2px solid black;
+}
 .top-nav-title a,
 .top-nav-links a {
     font-weight: bold;

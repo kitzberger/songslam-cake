@@ -60,6 +60,10 @@ class AppController extends Controller
      */
     public function beforeRender(\Cake\Event\EventInterface $event)
     {
+        $this->set('controller', $this->request->getParam('controller'));
+
+        $this->set('_csrfToken', $this->request->getParam('_csrfToken'));
+
         $currentUser = $this->Authentication->getIdentity();
         $this->set('currentUser', $currentUser);
     }
