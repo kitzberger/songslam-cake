@@ -43,6 +43,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <a href="/"><span>Song</span>Slams<span>.de</span></a>
         </div>
         <div class="top-nav-links">
+            <?php
+                if ($currentUser) {
+                    echo '<span>' . __('Logged in as: ') . $currentUser->get('email') . '</span>';
+                    echo '<span>|</span>';
+                    echo $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout'], ['class' => 'danger']);
+                } else {
+                    echo __('Not logged in yet.');
+                }
+            ?>
+            <?= '<span>|</span>'; ?>
             <?= $this->Html->link(__('Users'), ['controller' => 'Users', 'action' => 'index'], []) ?>
             <?= $this->Html->link(__('Slams'), ['controller' => 'Slams', 'action' => 'index'], []) ?>
             <?= $this->Html->link(__('Dates'), ['controller' => 'Dates', 'action' => 'index'], []) ?>
