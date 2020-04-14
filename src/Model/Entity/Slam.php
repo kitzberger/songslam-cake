@@ -22,6 +22,9 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  * @property string $state
+ * @property string|null $longitude
+ * @property string|null $latitude
+ * @property bool|null $sleeping
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Date[] $dates
@@ -52,6 +55,9 @@ class Slam extends Entity
         'created' => true,
         'modified' => true,
         'state' => true,
+        'longitude' => true,
+        'latitude' => true,
+        'sleeping' => true,
         'user' => true,
         'dates' => true,
         'tags' => true,

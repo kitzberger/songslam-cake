@@ -47,12 +47,24 @@
                     <td><?= h($slam->state) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Longitude') ?></th>
+                    <td><?= $this->Number->format($slam->longitude) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Latitude') ?></th>
+                    <td><?= $this->Number->format($slam->latitude) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Created') ?></th>
                     <td><?= h($slam->created) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Modified') ?></th>
                     <td><?= h($slam->modified) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Sleeping') ?></th>
+                    <td><?= $slam->sleeping ? __('Yes') : __('No'); ?></td>
                 </tr>
             </table>
             <div class="text">

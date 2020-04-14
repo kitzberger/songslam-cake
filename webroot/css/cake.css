@@ -157,6 +157,9 @@ th {
     justify-content: center;
 }
 
+.inactive,
+.inactive * { color: #c2c2c2 !important; }
+
 @media screen and (max-width: 640px) {
     .top-nav {
         margin: 0 auto;

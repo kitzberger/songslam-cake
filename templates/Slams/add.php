@@ -27,6 +27,7 @@
                     echo $this->Form->control('state');
                     echo $this->Form->control('contact');
                     echo $this->Form->control('www');
+                    echo $this->Form->control('sleeping');
                     echo $this->Form->control('tags._ids', ['options' => $tags]);
                 ?>
             </fieldset>

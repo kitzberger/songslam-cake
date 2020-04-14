@@ -134,6 +134,18 @@ class SlamsTable extends Table
             ->requirePresence('state', 'create')
             ->notEmptyString('state');
 
+        $validator
+            ->decimal('longitude')
+            ->allowEmptyString('longitude');
+
+        $validator
+            ->decimal('latitude')
+            ->allowEmptyString('latitude');
+
+        $validator
+            ->boolean('sleeping')
+            ->allowEmptyString('sleeping');
+
         return $validator;
     }
 

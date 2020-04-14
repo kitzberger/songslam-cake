@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 <?php foreach ($slams as $slam): ?>
-                <tr>
+                <tr class="<?= $slam->sleeping?'inactive':'' ?>">
                     <td><?= h($slam->state) ?></td>
                     <td><?= h($slam->city) ?></td>
                     <td><?= h($slam->venue) ?></td>

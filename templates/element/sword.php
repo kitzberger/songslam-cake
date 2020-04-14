@@ -1,13 +1,46 @@
-<form method="GET">
-    <div class="row collapse">
-        <div class="medium-2 large-1 columns hide-for-small-only">
-            <label for="sword" class="prefix"><?= __('Search') ?></label>
+<form class="filter-form" method="GET">
+    <div class="row">
+        <?php
+            if (isset($sword)):
+        ?>
+        <div class="column column-25">
+            <?= $this->Form->control(
+                'sword',
+                [
+                    'label' => __('Search'),
+                    'placeholder' => __('Search ...'),
+                    'value' => $sword,
+                    'autofocus',
+                    'onfocus' => 'this.select()'
+                ])
+            ?>
         </div>
-        <div class="small-10 medium-9 large-10 columns">
-            <input type="text" id="sword" name="sword" placeholder="<?= __('Search ...') ?>" value="<?= h($sword) ?>" autofocus onfocus="this.select()"/>
+        <?php
+            endif;
+        ?>
+        <?php
+            if (isset($state)):
+        ?>
+        <div class="column column-25">
+            <?= $this->Form->control('state', ['label' => __('State'), 'options' => [null, 'BY' => 'BY', 'BW' => 'BW'], 'value' => $state]) ?>
         </div>
-        <div class="small-2 medium-1 large-1 columns">
-            <input type="submit" value="Go" class="button postfix" />
+        <?php
+            endif;
+        ?>
+        <?php
+            if (isset($sleeping)):
+              $this->Form->setTemplates([
+                    'nestingLabel' => '<label{{attrs}}>{{text}}</label>{{hidden}}{{input}}',
+                ]);
+        ?>
+        <div class="column column-20">
+            <?= $this->Form->control('sleeping', ['label' => __('Include sleeping?'), 'value' => true, 'checked' => $sleeping]) ?>
+         </div>
+        <?php
+            endif;
+        ?>
+        <div class="column column-30">
+            <input type="submit" value="<?= __('Filter') ?>" class="button button-outline" />
         </div>
     </div>
 </form>

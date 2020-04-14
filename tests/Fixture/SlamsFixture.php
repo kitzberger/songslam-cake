@@ -31,6 +31,9 @@ class SlamsFixture extends TestFixture
         'created' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
         'modified' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
         'state' => ['type' => 'string', 'length' => 2, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'longitude' => ['type' => 'decimal', 'length' => 10, 'precision' => 8, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
+        'latitude' => ['type' => 'decimal', 'length' => 10, 'precision' => 8, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
+        'sleeping' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => '0', 'comment' => '', 'precision' => null],
         '_indexes' => [
             'user_key' => ['type' => 'index', 'columns' => ['user_id'], 'length' => []],
         ],
@@ -65,9 +68,12 @@ class SlamsFixture extends TestFixture
                 'zip' => 'Lor',
                 'contact' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'www' => 'Lorem ipsum dolor sit amet',
-                'created' => '2020-04-13 15:58:18',
-                'modified' => '2020-04-13 15:58:18',
+                'created' => '2020-04-14 09:54:32',
+                'modified' => '2020-04-14 09:54:32',
                 'state' => 'Lo',
+                'longitude' => 1.5,
+                'latitude' => 1.5,
+                'sleeping' => 1,
             ],
         ];
         parent::init();
