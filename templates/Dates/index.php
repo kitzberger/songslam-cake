@@ -7,6 +7,7 @@
 <div class="dates index content">
     <?= $this->Html->link(__('New Date'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Dates') ?></h3>
+    <?= $this->element('sword', ['sword' => $sword]) ?>
     <div class="table-responsive">
         <table>
             <thead>

@@ -25,12 +25,17 @@ class DatesController extends AppController
      */
     public function index()
     {
+        $sword = $this->request->getQuery('sword');
+
         $this->paginate = [
             'contain' => ['Users', 'Slams'],
+            'order' => ['Dates.starttime ASC'],
+            'conditions' => ['Slams.title LIKE' => '%'.$sword.'%'],
         ];
+
         $dates = $this->paginate($this->Dates);
 
-        $this->set(compact('dates'));
+        $this->set(compact('dates', 'sword'));
     }
 
     /**

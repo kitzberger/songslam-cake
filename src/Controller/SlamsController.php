@@ -25,12 +25,23 @@ class SlamsController extends AppController
      */
     public function index()
     {
+        $sword = $this->request->getQuery('sword');
+
         $this->paginate = [
             'contain' => ['Users'],
+            'order' => ['Slams.state ASC', 'Slams.city ASC'],
+            'conditions' => [
+                'OR' => [
+                    'Slams.title LIKE' => '%'.$sword.'%',
+                    'Slams.city LIKE' => '%'.$sword.'%',
+                    'Slams.venue LIKE' => '%'.$sword.'%',
+                ],
+            ],
         ];
+
         $slams = $this->paginate($this->Slams);
 
-        $this->set(compact('slams'));
+        $this->set(compact('slams', 'sword'));
     }
 
     /**
