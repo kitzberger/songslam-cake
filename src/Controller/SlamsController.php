@@ -15,7 +15,7 @@ class SlamsController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->allowUnauthenticated(['index', 'view']);
+        $this->Authentication->allowUnauthenticated(['index', 'view', 'map']);
     }
 
     /**
@@ -24,6 +24,49 @@ class SlamsController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      */
     public function index()
+    {
+        $sword = $this->request->getQuery('sword') ?: '';
+        $state = $this->request->getQuery('state') ?: '';
+        $sleeping = $this->request->getQuery('sleeping') ?: false;
+
+        $conditions = [];
+        if ($sword) {
+            $conditions[] = [
+                'OR' => [
+                    'Slams.title LIKE' => '%'.$sword.'%',
+                    'Slams.city LIKE' => '%'.$sword.'%',
+                    'Slams.venue LIKE' => '%'.$sword.'%',
+                ],
+            ];
+        }
+        if ($state) {
+            $conditions[] = [
+                'Slams.state' => $state,
+            ];
+        }
+        if ($sleeping === false) {
+            $conditions[] = [
+                'Slams.sleeping' => false,
+            ];
+        }
+
+        $this->paginate = [
+            'contain' => ['Users'],
+            'order' => ['Slams.state ASC', 'Slams.city ASC'],
+            'conditions' => $conditions,
+        ];
+
+        $slams = $this->paginate($this->Slams);
+
+        $this->set(compact('slams', 'sword', 'state', 'sleeping'));
+    }
+
+    /**
+     * Map method
+     *
+     * @return \Cake\Http\Response|null|void Renders view
+     */
+    public function map()
     {
         $sword = $this->request->getQuery('sword') ?: '';
         $state = $this->request->getQuery('state') ?: '';

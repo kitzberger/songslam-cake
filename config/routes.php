@@ -64,11 +64,13 @@ $routes->scope('/', function (RouteBuilder $builder) {
      */
     #$builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $builder->connect('/', ['controller' => 'Slams', 'action' => 'index']);
+    $builder->connect('/map', ['controller' => 'Slams', 'action' => 'map']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $builder->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+
 
     /*
      * Connect catchall routes for all controllers.

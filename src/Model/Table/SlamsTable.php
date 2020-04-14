@@ -171,5 +171,25 @@ class SlamsTable extends Table
             // trim slug to maximum length defined in schema
             $entity->slug = strtolower(substr($sluggedTitle, 0, 191));
         }
+
+        if ($entity->isDirty('city') || $entity->isDirty('zip') || $entity->isDirty('address')) {
+            if ($entity->address && $entity->city) {
+                $url = "https://nominatim.openstreetmap.org/";
+                $nominatim = new \maxh\Nominatim\Nominatim($url);
+                $search = $nominatim
+                    ->newSearch()
+                    ->country('Germany')
+                    ->city($entity->city)
+                    ->postalCode($entity->zip)
+                    ->street($entity->address);
+                $result = $nominatim->find($search);
+
+                if (!empty($result)) {
+                    $entity->longitude = $result[0]['lon'];
+                    $entity->latitude = $result[0]['lat'];
+                }
+                #debug($search); debug($result); die();
+            }
+        }
     }
 }

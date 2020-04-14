@@ -6,7 +6,14 @@
 ?>
 <div class="slams index content">
     <?= $this->Html->link(__('New Slam'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Slams') ?></h3>
+    <h3>
+        <?= __('Slams') ?>
+        <small>
+            <?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'active']) ?>
+            /
+            <?= $this->Html->link(__('Map'), ['action' => 'map']) ?>
+        </small>
+    </h3>
     <?= $this->element('sword', ['sword' => $sword]) ?>
     <div class="table-responsive">
         <table>
