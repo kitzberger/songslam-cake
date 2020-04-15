@@ -76,19 +76,18 @@ class DatesTable extends Table
         $validator
             ->scalar('title')
             ->maxLength('title', 255)
-            ->requirePresence('title', 'create')
-            ->notEmptyString('title');
+            ->allowEmptyString('title');
 
         $validator
             ->scalar('slug')
             ->maxLength('slug', 191)
-            ->requirePresence('slug', 'create')
+            ->requirePresence('slug', 'update')
             ->notEmptyString('slug')
             ->add('slug', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
             ->dateTime('starttime')
-            ->allowEmptyDateTime('starttime');
+            ->notEmptyDateTime('starttime');
 
         $validator
             ->dateTime('endtime')
@@ -130,7 +129,18 @@ class DatesTable extends Table
     public function beforeSave(EventInterface $event, $entity, $options)
     {
         if ($entity->isNew() && !$entity->slug) {
-            $sluggedTitle = Text::slug($entity->title);
+            $slam = \Cake\ORM\TableRegistry::getTableLocator()
+                ->get('Slams')
+                ->get($entity->slam_id);
+
+            $slamSlug = $slam ? $slam->slug : random_bytes(6);
+
+            $sluggedTitle = Text::slug(
+                $slamSlug . '-' .
+                $entity->starttime->format('Y-m-d') .
+                ($entity->title ? '-' . $entity->title : '')
+            );
+
             // trim slug to maximum length defined in schema
             $entity->slug = substr($sluggedTitle, 0, 191);
         }

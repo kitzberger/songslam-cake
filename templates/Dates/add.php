@@ -19,10 +19,8 @@
                 <?php
                     echo $this->Form->hidden('user_id', ['value' => $currentUser->getIdentifier()]);
                     echo $this->Form->control('slam_id', ['options' => $slams]);
-                    echo $this->Form->control('title');
-                    echo $this->Form->control('slug');
                     echo $this->Form->control('starttime', ['empty' => true]);
-                    echo $this->Form->control('endtime', ['empty' => true]);
+                    echo $this->Form->control('title', ['label' => __('Title (optional)')]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

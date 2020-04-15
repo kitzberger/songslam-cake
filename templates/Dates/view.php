@@ -16,23 +16,15 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="dates view content">
-            <h3><?= h($date->title) ?></h3>
+            <h3><?= ($date->has('slam') ? h($date->slam->title) . ': ' : '') . h($date->starttime->format('d.m.Y')) . ($date->title ? ': ' . h($date->title) : '') ?></h3>
             <table>
                 <tr>
                     <th><?= __('Slam') ?></th>
                     <td><?= $date->has('slam') ? $this->Html->link($date->slam->title, ['controller' => 'Slams', 'action' => 'view', $date->slam->slug]) : '' ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Title') ?></th>
-                    <td><?= h($date->title) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Starttime') ?></th>
                     <td><?= h($date->starttime) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Endtime') ?></th>
-                    <td><?= h($date->endtime) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>

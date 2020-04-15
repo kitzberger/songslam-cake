@@ -113,9 +113,13 @@ class SlamsController extends AppController
      */
     public function view($slug = null)
     {
-        $slam = $this->Slams->findBySlug($slug, [
-            'contain' => ['Users', 'Tags', 'Dates'],
-        ])->firstOrFail();
+        $relations = ['Users', 'Tags', 'Dates'];
+
+        if (is_numeric($slug)) {
+            $slam =  $this->Slams->get($slug)->contain($relations);
+        } else {
+            $slam = $this->Slams->findBySlug($slug)->contain($relations)->firstOrFail();
+        }
 
         $this->set('slam', $slam);
     }

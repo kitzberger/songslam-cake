@@ -85,23 +85,11 @@
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id') ?></th>
                             <th><?= __('Title') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($slam->tags as $tags) : ?>
                         <tr>
-                            <td><?= h($tags->id) ?></td>
                             <td><?= h($tags->title) ?></td>
-                            <td><?= h($tags->created) ?></td>
-                            <td><?= h($tags->modified) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Tags', 'action' => 'view', $tags->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Tags', 'action' => 'edit', $tags->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Tags', 'action' => 'delete', $tags->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tags->id)]) ?>
-                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </table>
@@ -114,33 +102,13 @@
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('User Id') ?></th>
-                            <th><?= __('Slam Id') ?></th>
-                            <th><?= __('Title') ?></th>
-                            <th><?= __('Slug') ?></th>
                             <th><?= __('Starttime') ?></th>
-                            <th><?= __('Endtime') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
+                            <th><?= __('Title') ?></th>
                         </tr>
-                        <?php foreach ($slam->dates as $dates) : ?>
+                        <?php foreach ($slam->dates as $date) : ?>
                         <tr>
-                            <td><?= h($dates->id) ?></td>
-                            <td><?= h($dates->user_id) ?></td>
-                            <td><?= h($dates->slam_id) ?></td>
-                            <td><?= h($dates->title) ?></td>
-                            <td><?= h($dates->slug) ?></td>
-                            <td><?= h($dates->starttime) ?></td>
-                            <td><?= h($dates->endtime) ?></td>
-                            <td><?= h($dates->created) ?></td>
-                            <td><?= h($dates->modified) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Dates', 'action' => 'view', $dates->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Dates', 'action' => 'edit', $dates->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Dates', 'action' => 'delete', $dates->id], ['confirm' => __('Are you sure you want to delete # {0}?', $dates->id)]) ?>
-                            </td>
+                            <td><?= $this->Html->link($date->starttime, ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
+                            <td><?= $this->Html->link($date->title, ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </table>

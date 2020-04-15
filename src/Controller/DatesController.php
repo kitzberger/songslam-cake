@@ -25,31 +25,58 @@ class DatesController extends AppController
      */
     public function index()
     {
-        $sword = $this->request->getQuery('sword');
+        $sword = $this->request->getQuery('sword') ?: '';
+        $state = $this->request->getQuery('state') ?: '';
+        $sleeping = $this->request->getQuery('sleeping') ?: false;
+
+        $conditions = [];
+        if ($sword) {
+            $conditions[] = [
+                'OR' => [
+                    'Slams.title LIKE' => '%'.$sword.'%',
+                    'Slams.city LIKE' => '%'.$sword.'%',
+                    'Slams.venue LIKE' => '%'.$sword.'%',
+                ],
+            ];
+        }
+        if ($state) {
+            $conditions[] = [
+                'Slams.state' => $state,
+            ];
+        }
+        if ($sleeping === false) {
+            $conditions[] = [
+                'Dates.starttime >' => new \DateTime(),
+            ];
+        }
 
         $this->paginate = [
             'contain' => ['Users', 'Slams'],
             'order' => ['Dates.starttime ASC'],
-            'conditions' => ['Slams.title LIKE' => '%'.$sword.'%'],
+            'conditions' => $conditions,
         ];
 
         $dates = $this->paginate($this->Dates);
 
-        $this->set(compact('dates', 'sword'));
+        $this->set(compact('dates', 'sword', 'state', 'sleeping'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id Date id.
+     * @param string|null $slug Date slug.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($slug = null)
     {
-        $date = $this->Dates->get($id, [
-            'contain' => ['Users', 'Slams'],
-        ]);
+        $relations = ['Users', 'Slams'];
+
+        if (is_numeric($slug)) {
+            $date = $this->Dates->get($slug)->contain($relations);
+        } else {
+            $date = $this->Dates->findBySlug($slug)->contain($relations)->firstOrFail();
+        }
 
         $this->set('date', $date);
     }

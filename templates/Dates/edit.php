@@ -23,10 +23,9 @@
                 <legend><?= __('Edit Date') ?></legend>
                 <?php
                     echo $this->Form->control('slam_id', ['options' => $slams]);
-                    echo $this->Form->control('title');
-                    echo $this->Form->control('slug');
                     echo $this->Form->control('starttime', ['empty' => true]);
-                    echo $this->Form->control('endtime', ['empty' => true]);
+                    echo $this->Form->control('title', ['label' => __('Title (optional)')]);
+                    echo $this->Form->control('slug');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
