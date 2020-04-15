@@ -35,6 +35,25 @@ use Cake\Event\EventInterface;
  */
 class SlamsTable extends Table
 {
+    const STATES = [
+        'BW' => 'Baden-Württemberg',
+        'BY' => 'Bayern',
+        'BE' => 'Berlin',
+        'BB' => 'Brandenburg',
+        'HB' => 'Bremen',
+        'HH' => 'Hamburg',
+        'HE' => 'Hessen',
+        'NI' => 'Niedersachsen',
+        'MV' => 'Mecklenburg-Vorpommern',
+        'NW' => 'Nordrhein-Westfalen',
+        'RP' => 'Rheinland-Pfalz',
+        'SL' => 'Saarland',
+        'SN' => 'Sachsen',
+        'ST' => 'Sachsen-Anhalt',
+        'SH' => 'Schleswig-Holstein',
+        'TH' => 'Thüringen',
+    ];
+
     /**
      * Initialize method
      *
