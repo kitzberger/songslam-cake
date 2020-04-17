@@ -84,18 +84,20 @@
                 <?php if (!empty($slam->files)) : ?>
                 <div class="table-responsive">
                     <table>
+                    <?php foreach ($slam->files as $file) : ?>
                         <tr>
-                            <th><?= __('Title') ?></th>
+                            <th><?= h($file->title) ?></th>
+                            <td><?= $this->element('files/embed', ['file' => $file]) ?></td>
                         </tr>
-                        <?php foreach ($slam->files as $file) : ?>
-                        <tr>
-                            <td><?= h($file->title) ?></td>
-                        </tr>
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
                     </table>
                 </div>
                 <?php endif; ?>
-                <?= $this->element('upload', ['slam_id' => $slam->id]) ?>
+                <?php
+                    if ($currentUser) {
+                        echo $this->element('files/upload', ['slam_id' => $slam->id]);
+                    }
+                ?>
             </div>
             <div class="related">
                 <h4><?= __('Related Tags') ?></h4>

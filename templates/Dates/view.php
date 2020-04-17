@@ -40,18 +40,20 @@
                 <?php if (!empty($date->files)) : ?>
                 <div class="table-responsive">
                     <table>
+                    <?php foreach ($date->files as $file) : ?>
                         <tr>
-                            <th><?= __('Title') ?></th>
+                            <th><?= h($file->title) ?></th>
+                            <td><?= $this->element('files/embed', ['file' => $file]) ?></td>
                         </tr>
-                        <?php foreach ($date->files as $file) : ?>
-                        <tr>
-                            <td><?= h($file->title) ?></td>
-                        </tr>
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
                     </table>
                 </div>
                 <?php endif; ?>
-                <?= $this->element('upload', ['date_id' => $date->id]) ?>
+                <?php
+                    if ($currentUser) {
+                        echo $this->element('files/upload', ['date_id' => $date->id]);
+                    }
+                ?>
             </div>
         </div>
     </div>
