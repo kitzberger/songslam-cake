@@ -12,7 +12,7 @@
             <fieldset>
                 <legend><?= __('Please enter your credentials here!') ?></legend>
                 <?php
-                    echo $this->Form->control('email', ['label' => __('E-Mail')]);
+                    echo $this->Form->control('email', ['label' => __('E-Mail'), 'autofocus']);
                     echo $this->Form->control('password');
                 ?>
             </fieldset>
