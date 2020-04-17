@@ -64,7 +64,9 @@ class AppController extends Controller
 
         $this->set('_csrfToken', $this->request->getAttribute('csrfToken'));
 
-        $currentUser = $this->Authentication->getIdentity();
-        $this->set('currentUser', $currentUser);
+        if (isset($this->Authentication)) {
+            $currentUser = $this->Authentication->getIdentity();
+            $this->set('currentUser', $currentUser);
+        }
     }
 }
