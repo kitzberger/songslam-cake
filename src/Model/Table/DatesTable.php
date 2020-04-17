@@ -61,9 +61,9 @@ class DatesTable extends Table
             'joinType' => 'INNER',
         ]);
         $this->belongsToMany('Files', [
-            'foreignKey' => 'slam_id',
+            'foreignKey' => 'date_id',
             'targetForeignKey' => 'file_id',
-            'joinTable' => 'files_slams',
+            'joinTable' => 'files_dates',
         ]);
     }
 
