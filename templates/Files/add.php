@@ -13,13 +13,12 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="files form content">
-            <?= $this->Form->create($file) ?>
+            <?= $this->Form->create($file, ['enctype' => 'multipart/form-data']) ?>
             <fieldset>
                 <legend><?= __('Add File') ?></legend>
                 <?php
-                    echo $this->Form->control('user_id', ['options' => $users]);
-                    echo $this->Form->control('title');
-                    echo $this->Form->control('file');
+                    echo $this->Form->hidden('user_id', ['value' => $currentUser->getIdentifier()]);
+                    echo $this->Form->file('file');
                     echo $this->Form->control('dates._ids', ['options' => $dates]);
                     echo $this->Form->control('slams._ids', ['options' => $slams]);
                 ?>

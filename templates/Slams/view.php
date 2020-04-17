@@ -79,6 +79,24 @@
                     <?= $this->Text->autoParagraph(h($slam->contact)); ?>
                 </blockquote>
             </div>
+            <div class="files">
+                <h4><?= __('Files') ?></h4>
+                <?php if (!empty($slam->files)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Title') ?></th>
+                        </tr>
+                        <?php foreach ($slam->files as $file) : ?>
+                        <tr>
+                            <td><?= h($file->title) ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+                <?= $this->element('upload', ['slam_id' => $slam->id]) ?>
+            </div>
             <div class="related">
                 <h4><?= __('Related Tags') ?></h4>
                 <?php if (!empty($slam->tags)) : ?>

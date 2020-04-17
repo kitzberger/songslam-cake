@@ -35,6 +35,24 @@
                     <td><?= h($date->modified) ?></td>
                 </tr>
             </table>
+            <div class="files">
+                <h4><?= __('Files') ?></h4>
+                <?php if (!empty($date->files)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Title') ?></th>
+                        </tr>
+                        <?php foreach ($date->files as $file) : ?>
+                        <tr>
+                            <td><?= h($file->title) ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+                <?= $this->element('upload', ['date_id' => $date->id]) ?>
+            </div>
         </div>
     </div>
 </div>

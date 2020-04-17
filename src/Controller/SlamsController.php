@@ -113,7 +113,7 @@ class SlamsController extends AppController
      */
     public function view($slug = null)
     {
-        $relations = ['Users', 'Tags', 'Dates'];
+        $relations = ['Users', 'Tags', 'Dates', 'Files'];
 
         if (is_numeric($slug)) {
             $slam =  $this->Slams->get($slug)->contain($relations);

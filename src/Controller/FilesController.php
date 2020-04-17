@@ -12,6 +12,12 @@ namespace App\Controller;
  */
 class FilesController extends AppController
 {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        $this->Authentication->allowUnauthenticated(['index', 'view']);
+    }
+
     /**
      * Index method
      *
@@ -19,12 +25,16 @@ class FilesController extends AppController
      */
     public function index()
     {
+        $sword = $this->request->getQuery('sword') ?: '';
+
         $this->paginate = [
-            'contain' => ['Users'],
+            'contain' => ['Users', 'Slams', 'Dates'],
+            'order' => ['Files.modified DESC'],
+            'conditions' => ['Files.title LIKE' => '%'.$sword.'%'],
         ];
         $files = $this->paginate($this->Files);
 
-        $this->set(compact('files'));
+        $this->set(compact('files', 'sword'));
     }
 
     /**
@@ -51,18 +61,33 @@ class FilesController extends AppController
     public function add()
     {
         $file = $this->Files->newEmptyEntity();
-        if ($this->request->is('post')) {
-            $file = $this->Files->patchEntity($file, $this->request->getData());
-            if ($this->Files->save($file)) {
-                $this->Flash->success(__('The file has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+        if ($this->request->is('post')) {
+            try {
+                $fileInfo = $this->storeFile();
+            } catch (\Exception $e) {
+                $fileInfo = false;
+                $this->Flash->error(__('File upload failed! Message:') . ' ' . $e->getMessage());
             }
-            $this->Flash->error(__('The file could not be saved. Please, try again.'));
+            if ($fileInfo) {
+                #debug($this->request->getData());
+                $file = $this->Files->patchEntity($file, $this->request->getData());
+                #debug($fileInfo);
+                $file = $this->Files->patchEntity($file, $fileInfo);
+                #debug($file);
+                die('x');
+                if ($this->Files->save($file)) {
+                    $this->Flash->success(__('The file has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                } else {
+                    $this->Flash->error(__('The file could not be saved. Please, try again.'));
+                }
+            }
         }
-        $users = $this->Files->Users->find('list', ['limit' => 200]);
+
         $dates = $this->Files->Dates->find('list', ['limit' => 200]);
         $slams = $this->Files->Slams->find('list', ['limit' => 200]);
+
         $this->set(compact('file', 'users', 'dates', 'slams'));
     }
 
@@ -111,5 +136,89 @@ class FilesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Add method
+     *
+     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
+     */
+    public function upload()
+    {
+        $file = $this->Files->newEmptyEntity();
+
+        if ($this->request->is('post')) {
+            try {
+                $fileInfo = $this->storeFile();
+            } catch (\Exception $e) {
+                $fileInfo = false;
+                $this->set('error', __('File upload failed! Message:') . ' ' . $e->getMessage());
+                $this->response->header('HTTP/1.1 500', 'Internal Server Error');
+            }
+
+            if ($fileInfo) {
+                #debug($this->request->getData());
+                $file = $this->Files->patchEntity($file, $this->request->getData());
+                #debug($fileInfo);
+                $file = $this->Files->patchEntity($file, $fileInfo);
+                #debug($file);
+                if ($this->Files->save($file)) {
+                    $this->set('file', $file->id);
+                    if ($file->slams) {
+                        $this->set('slams', array_column($file->slams, 'id'));
+                    }
+                    if ($file->dates) {
+                        $this->set('dates', array_column($file->dates, 'id'));
+                    }
+                } else {
+                    $this->set('error', __('The file could not be saved. Please, try again.'));
+                    $this->response->header('HTTP/1.1 500', 'Internal Server Error');
+                }
+            }
+        }
+
+        $this->set('_serialize', ['file', 'slams', 'dates', 'error', 'suggestions']);
+    }
+
+    /**
+     * @param string $fileVariable a key of $_FILES
+     * @return array
+     * @throws \Exception
+     */
+    protected function storeFile($fileVariable = 'file')
+    {
+        $errors = [];
+
+        $fileobject = $this->request->getData($fileVariable);
+        if ($fileobject) {
+            $fileNameFull = $fileobject->getClientFilename();
+            $fileName = pathinfo($fileNameFull, PATHINFO_FILENAME);
+            $fileExtension = strtolower(pathinfo($fileNameFull, PATHINFO_EXTENSION));
+            $destination = 'uploads' . DS . $fileName . '.' . $fileExtension;
+
+            $counter = 0;
+            while (file_exists($destination)) {
+                $counter++;
+                $fileNameFull = $fileName . '-' . $counter . '.' . $fileExtension;
+                $destination = 'uploads' . DS . $fileNameFull;
+                if ($counter > 99) {
+                    $errors[] = 'Too many iterations when finding a good filename!';
+                    break;
+                }
+            }
+
+            $fileobject->moveTo($destination);
+        } else {
+            $errors[] = 'No file uploaded.';
+        }
+
+        if (count($errors)) {
+            throw new \Exception(join(', ', $errors));
+        } else {
+            return [
+                'title' => $fileName . '.' . $fileExtension,
+                'file' => $fileNameFull,
+            ];
+        }
     }
 }

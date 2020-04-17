@@ -87,7 +87,7 @@ class FilesTable extends Table
             ->scalar('file')
             ->maxLength('file', 255)
             ->requirePresence('file', 'create')
-            ->notEmptyFile('file');
+            ->notEmptyString('file');
 
         return $validator;
     }

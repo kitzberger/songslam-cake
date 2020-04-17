@@ -40,4 +40,40 @@ class File extends Entity
         'dates' => true,
         'slams' => true,
     ];
+
+    public function getExtension()
+    {
+        $fileFormat = strtolower(pathinfo($this->file, PATHINFO_EXTENSION));
+        if ($fileFormat === 'mp3') {
+            $fileFormat = 'mpeg';
+        }
+        return $fileFormat;
+    }
+
+    public function isAudio()
+    {
+        $fileFormat = $this->getExtension();
+        return in_array($fileFormat, ['mp3', 'mpeg', 'ogg', 'wav', 'flac']);
+    }
+
+    public function isImage()
+    {
+        $fileFormat = $this->getExtension();
+        return in_array($fileFormat, ['jpg', 'jpeg', 'png', 'gif']);
+    }
+
+    public function getType()
+    {
+        return $this->isAudio() ? 'audio' : ($this->isImage() ? 'image' : 'other');
+    }
+
+    public function getDimensions()
+    {
+        $size = getimagesize(WWW_ROOT . 'uploads' . DS . $this->file);
+        return [
+            'w' => $size[0],
+            'h' => $size[1],
+            'r' => $size[0] / $size[1],
+        ];
+    }
 }

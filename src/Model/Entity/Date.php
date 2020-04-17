@@ -20,6 +20,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Slam $slam
+ * @property \App\Model\Entity\File[] $files
  */
 class Date extends Entity
 {
@@ -43,5 +44,6 @@ class Date extends Entity
         'modified' => true,
         'user' => true,
         'slam' => true,
+        'files' => true,
     ];
 }

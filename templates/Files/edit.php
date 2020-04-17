@@ -22,9 +22,7 @@
             <fieldset>
                 <legend><?= __('Edit File') ?></legend>
                 <?php
-                    echo $this->Form->control('user_id', ['options' => $users]);
                     echo $this->Form->control('title');
-                    echo $this->Form->control('file');
                     echo $this->Form->control('dates._ids', ['options' => $dates]);
                     echo $this->Form->control('slams._ids', ['options' => $slams]);
                 ?>

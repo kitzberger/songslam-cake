@@ -70,7 +70,7 @@ class DatesController extends AppController
      */
     public function view($slug = null)
     {
-        $relations = ['Users', 'Slams'];
+        $relations = ['Users', 'Slams', 'Files'];
 
         if (is_numeric($slug)) {
             $date = $this->Dates->get($slug)->contain($relations);

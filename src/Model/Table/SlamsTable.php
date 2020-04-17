@@ -16,6 +16,7 @@ use Cake\Event\EventInterface;
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\DatesTable&\Cake\ORM\Association\HasMany $Dates
  * @property \App\Model\Table\TagsTable&\Cake\ORM\Association\BelongsToMany $Tags
+ * @property \App\Model\Table\FilesTable&\Cake\ORM\Association\BelongsToMany $Files
  *
  * @method \App\Model\Entity\Slam newEmptyEntity()
  * @method \App\Model\Entity\Slam newEntity(array $data, array $options = [])
@@ -81,6 +82,11 @@ class SlamsTable extends Table
             'foreignKey' => 'slam_id',
             'targetForeignKey' => 'tag_id',
             'joinTable' => 'slams_tags',
+        ]);
+        $this->belongsToMany('Files', [
+            'foreignKey' => 'slam_id',
+            'targetForeignKey' => 'file_id',
+            'joinTable' => 'files_slams',
         ]);
     }
 

@@ -59,6 +59,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <?= $this->Html->link(__('Slams'), ['controller' => 'Slams', 'action' => 'index'], ['class' => $controller==='Slams'?'active':'']) ?>
             <?= $this->Html->link(__('Dates'), ['controller' => 'Dates', 'action' => 'index'], ['class' => $controller==='Dates'?'active':'']) ?>
             <?= $currentUser ? $this->Html->link(__('Tags'),  ['controller' => 'Tags',  'action' => 'index'], ['class' => $controller==='Tags'?'active':'']) : '' ?>
+            <?= $currentUser ? $this->Html->link(__('Files'),  ['controller' => 'Files',  'action' => 'index'], ['class' => $controller==='Files'?'active':'']) : '' ?>
         </div>
     </nav>
     <main class="main">

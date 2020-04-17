@@ -167,6 +167,9 @@ h3 small .active { border-bottom: 2px solid #404041; }
     height: 500px;
 }
 
+table td,
+table th { vertical-align: top; }
+
 @media screen and (max-width: 640px) {
     .top-nav {
         margin: 0 auto;

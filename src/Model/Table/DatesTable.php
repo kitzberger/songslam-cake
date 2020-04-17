@@ -16,6 +16,7 @@ use ArrayObject;
  *
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\SlamsTable&\Cake\ORM\Association\BelongsTo $Slams
+ * @property \App\Model\Table\FilesTable&\Cake\ORM\Association\BelongsToMany $Files
  *
  * @method \App\Model\Entity\Date newEmptyEntity()
  * @method \App\Model\Entity\Date newEntity(array $data, array $options = [])
@@ -58,6 +59,11 @@ class DatesTable extends Table
         $this->belongsTo('Slams', [
             'foreignKey' => 'slam_id',
             'joinType' => 'INNER',
+        ]);
+        $this->belongsToMany('Files', [
+            'foreignKey' => 'slam_id',
+            'targetForeignKey' => 'file_id',
+            'joinTable' => 'files_slams',
         ]);
     }
 
