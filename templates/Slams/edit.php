@@ -25,7 +25,7 @@
                     echo $this->Form->hidden('user_id', ['value' => $currentUser->getIdentifier()]);
                     echo $this->Form->control('title');
                     echo $this->Form->control('slug');
-                    echo $this->Form->control('description');
+                    echo $this->Ck->input('description');
                     echo $this->Form->control('venue');
                     echo $this->Form->control('address');
                     echo $this->Form->control('city');

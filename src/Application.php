@@ -44,8 +44,6 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
      */
     public function bootstrap(): void
     {
-        $this->addPlugin('ADmad/Glide');
-
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 
@@ -63,6 +61,8 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
 
         // Load more plugins here
         $this->addPlugin('Authentication');
+        $this->addPlugin('ADmad/Glide');
+        $this->addPlugin('CkEditor');
     }
 
     /**
