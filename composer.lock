@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00cc3897dbcd793fbb09bb08caf18b66",
+    "content-hash": "9b697c1c2717d64bd338b746e904e8f6",
     "packages": [
         {
             "name": "admad/cakephp-glide",
@@ -105,6 +105,45 @@
                 "localization"
             ],
             "time": "2017-01-20T05:00:11+00:00"
+        },
+        {
+            "name": "cakecoded/ckeditor",
+            "version": "dev-cake4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kitzberger/CkEditor.git",
+                "reference": "36a3f382f2d6651fdb899b3234ab6853d7e193ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kitzberger/CkEditor/zipball/36a3f382f2d6651fdb899b3234ab6853d7e193ca",
+                "reference": "36a3f382f2d6651fdb899b3234ab6853d7e193ca",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": ">=3.3.2 <5.0.0",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "CkEditor\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "CkEditor\\Test\\": "tests",
+                    "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+                }
+            },
+            "description": "CkEditor plugin for CakePHP 3.x & 4.x",
+            "support": {
+                "source": "https://github.com/kitzberger/CkEditor/tree/cake4"
+            },
+            "time": "2020-04-29T14:41:04+00:00"
         },
         {
             "name": "cakephp/authentication",
@@ -5012,6 +5051,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "cakecoded/ckeditor": 20,
         "psy/psysh": 0
     },
     "prefer-stable": true,
