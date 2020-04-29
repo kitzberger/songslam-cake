@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                     <th><?= __('Www') ?></th>
-                    <td colspan="3"><?= $this->Text->autoLinkUrls(h($slam->www)) ?></td>
+                    <td colspan="3"><?= $this->Text->autoLinkUrls(h($slam->www), ['target' => '_blank']) ?></td>
                 </tr>
                 <?php if (!empty($slam->tags)): ?>
                 <tr>
@@ -55,10 +55,12 @@
                 <strong><?= __('Description') ?></strong>
                 <?= $slam->description; ?>
             </div>
+            <?php if (!empty($slam->contact)): ?>
             <div class="text">
                 <strong><?= __('Contact') ?></strong>
-                <?= $this->Text->autoParagraph($this->Text->autoLink(h($slam->contact))); ?>
+                <?= $this->Text->autoParagraph($this->Text->autoLink(h($slam->contact), ['target' => '_blank'])); ?>
             </div>
+            <?php endif; ?>
             <div class="files">
                 <h4><?= __('Files') ?></h4>
                 <?php if (!empty($slam->files)) : ?>
