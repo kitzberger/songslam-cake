@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                     <th><?= __('Www') ?></th>
-                    <td colspan="3"><?= h($slam->www) ?></td>
+                    <td colspan="3"><?= $this->Text->autoLinkUrls(h($slam->www)) ?></td>
                 </tr>
             </table>
             <div class="text">
@@ -48,7 +48,7 @@
             </div>
             <div class="text">
                 <strong><?= __('Contact') ?></strong>
-                <?= $this->Text->autoParagraph(h($slam->contact)); ?>
+                <?= $this->Text->autoParagraph($this->Text->autoLink(h($slam->contact))); ?>
             </div>
             <div class="files">
                 <h4><?= __('Files') ?></h4>
