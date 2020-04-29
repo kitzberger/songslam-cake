@@ -14,7 +14,6 @@
  * @var \App\View\AppView $this
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
 <html lang="<?= str_replace('_', '-', Cake\I18n\I18n::getDefaultLocale()) ?>">
@@ -22,8 +21,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
+        <?= ($this->fetch('title') ? $this->fetch('title') . ' | ' : '') . 'songslams.de' ?>
     </title>
     <?= $this->Html->meta('icon') ?>
 
@@ -69,6 +67,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </main>
     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <?= $this->Html->link(__('Imprint'), ['controller' => 'Pages', 'action' => 'display', 'imprint']) ?>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
