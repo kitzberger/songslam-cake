@@ -68,6 +68,16 @@ th {
 .view.content .text {
     margin-top: 1.2rem;
 }
+.view.content .text a {
+    font: inherit;
+    color: #d33c43;
+}
+.view.content .text a:hover {
+    text-decoration: underline;
+}
+.view.content .text p {
+    margin-bottom: 1em;
+}
 .related {
     margin-top: 2rem;
 }

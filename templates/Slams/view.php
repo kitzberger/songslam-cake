@@ -21,63 +21,34 @@
                 <tr>
                     <th><?= __('Title') ?></th>
                     <td><?= h($slam->title) ?></td>
+                    <th><?= __('Modified') ?></th>
+                    <td><?= h($slam->modified->format('d.m.Y')) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Venue') ?></th>
                     <td><?= h($slam->venue) ?></td>
+                    <th><?= __('Sleeping') ?></th>
+                    <td><?= $slam->sleeping ? __('Yes') : __('No'); ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Address') ?></th>
-                    <td><?= h($slam->address) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('City') ?></th>
-                    <td><?= h($slam->city) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Zip') ?></th>
-                    <td><?= h($slam->zip) ?></td>
+                    <td colspan="3">
+                        <?= h($slam->address) ?><br>
+                        <?= h(trim($slam->zip . ' ' . $slam->city . ($slam->state?' ('.$slam->state.')':''))) ?>
+                    </td>
                 </tr>
                 <tr>
                     <th><?= __('Www') ?></th>
-                    <td><?= h($slam->www) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('State') ?></th>
-                    <td><?= h($slam->state) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Longitude') ?></th>
-                    <td><?= $this->Number->format($slam->longitude) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Latitude') ?></th>
-                    <td><?= $this->Number->format($slam->latitude) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($slam->created) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Modified') ?></th>
-                    <td><?= h($slam->modified) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Sleeping') ?></th>
-                    <td><?= $slam->sleeping ? __('Yes') : __('No'); ?></td>
+                    <td colspan="3"><?= h($slam->www) ?></td>
                 </tr>
             </table>
             <div class="text">
                 <strong><?= __('Description') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($slam->description)); ?>
-                </blockquote>
+                <?= $slam->description; ?>
             </div>
             <div class="text">
                 <strong><?= __('Contact') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($slam->contact)); ?>
-                </blockquote>
+                <?= $this->Text->autoParagraph(h($slam->contact)); ?>
             </div>
             <div class="files">
                 <h4><?= __('Files') ?></h4>
