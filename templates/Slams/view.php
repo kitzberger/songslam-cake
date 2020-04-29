@@ -41,6 +41,15 @@
                     <th><?= __('Www') ?></th>
                     <td colspan="3"><?= $this->Text->autoLinkUrls(h($slam->www)) ?></td>
                 </tr>
+                <?php if (!empty($slam->tags)): ?>
+                <tr>
+                    <td colspan="4">
+                        <?php foreach ($slam->tags as $tags) : ?>
+                            <span class="badge"><?= h($tags->title) ?></span>
+                        <?php endforeach; ?>
+                    </td>
+                </tr>
+                <?php endif; ?>
             </table>
             <div class="text">
                 <strong><?= __('Description') ?></strong>
@@ -69,23 +78,6 @@
                         echo $this->element('files/upload', ['slam_id' => $slam->id]);
                     }
                 ?>
-            </div>
-            <div class="related">
-                <h4><?= __('Related Tags') ?></h4>
-                <?php if (!empty($slam->tags)) : ?>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Title') ?></th>
-                        </tr>
-                        <?php foreach ($slam->tags as $tags) : ?>
-                        <tr>
-                            <td><?= h($tags->title) ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
-                </div>
-                <?php endif; ?>
             </div>
             <div class="related">
                 <h4><?= __('Related Dates') ?></h4>
