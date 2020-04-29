@@ -5,4 +5,4 @@ dev:
 	composer install
 
 clear-cache:
-	bin/cake cache clear default
+	bin/cake cache clear_all
