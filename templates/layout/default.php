@@ -21,7 +21,7 @@
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?= ($this->fetch('title') ? $this->fetch('title') . ' | ' : '') . 'songslams.de' ?>
+        <?= ($this->fetch('title') ? $this->fetch('title') . ' | ' : '') . 'songslams.eu' ?>
     </title>
     <?= $this->Html->meta('icon') ?>
 
@@ -38,7 +38,7 @@
 <body>
     <nav class="top-nav">
         <div class="top-nav-title">
-            <a href="/"><span>Song</span>Slams<span>.de</span></a>
+            <a href="/"><span>Song</span>Slams<span>.eu</span></a>
         </div>
         <div class="top-nav-links">
             <?php
