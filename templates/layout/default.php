@@ -47,8 +47,6 @@
                     echo ' <span>|</span>';
                     echo $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']);
                 } else {
-                    echo __('Not logged in yet.');
-                    echo ' <span>|</span>';
                     echo $this->Html->link(__('Login'), ['controller' => 'Users', 'action' => 'login']);
                 }
             ?>
