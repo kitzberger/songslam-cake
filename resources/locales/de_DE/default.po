@@ -328,7 +328,7 @@ msgstr ""
 #: Slams/view.php:100
 #: Users/view.php:49
 msgid "Starttime"
-msgstr ""
+msgstr "Datum"
 
 #: Dates/view.php:30
 #: Files/view.php:40
@@ -349,7 +349,7 @@ msgstr "Erstellt am"
 #: Users/view.php:52
 #: Users/view.php:95
 msgid "Modified"
-msgstr "Bearbeitet am"
+msgstr "Aktualisiert"
 
 #: Dates/view.php:39
 #: Files/index.php:9

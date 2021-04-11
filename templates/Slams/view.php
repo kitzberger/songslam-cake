@@ -92,8 +92,8 @@
                         </tr>
                         <?php foreach ($slam->dates as $date) : ?>
                         <tr>
-                            <td><?= $this->Html->link($date->starttime, ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
-                            <td><?= $this->Html->link($date->title, ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
+                            <td><?= $this->Html->link($date->starttime ? $date->starttime->format('d.m.Y') : __('???'), ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
+                            <td><?= $this->Html->link($date->title ?: __('???'), ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </table>

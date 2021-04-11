@@ -24,15 +24,11 @@
                 </tr>
                 <tr>
                     <th><?= __('Starttime') ?></th>
-                    <td><?= h($date->starttime) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($date->created) ?></td>
+                    <td><?= h($date->starttime ? $date->starttime->format('d.m.Y H:i') : __('???')) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Modified') ?></th>
-                    <td><?= h($date->modified) ?></td>
+                    <td><?= h($date->modified->format('d.m.Y H:i')) ?></td>
                 </tr>
             </table>
             <div class="files">

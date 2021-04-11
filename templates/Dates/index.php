@@ -12,18 +12,23 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('slam_id') ?></th>
-                    <th><?= $this->Paginator->sort('starttime') ?></th>
-                    <th><?= $this->Paginator->sort('title') ?></th>
+                    <th><?= $this->Paginator->sort('Dates.starttime', __('Starttime')) ?></th>
+                    <th><?= $this->Paginator->sort('Dates.Slams.city', __('City')) ?></th>
+                    <th><?= $this->Paginator->sort('Dates.slam_id', __('Slam')) ?></th>
+                    <th><?= $this->Paginator->sort('Dates.title', __('Title')) ?></th>
+                    <?php if($currentUser): ?>
                     <th class="actions"><?= __('Actions') ?></th>
+                    <?php endif ?>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($dates as $date): ?>
                 <tr>
+                    <td><?= $this->Html->link($date->starttime->format('d.m.Y'), ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
+                    <td><?= $date->has('slam') ? $this->Html->link($date->slam->city, ['controller' => 'Slams', 'action' => 'view', $date->slam->slug]) : '' ?></td>
                     <td><?= $date->has('slam') ? $this->Html->link($date->slam->title, ['controller' => 'Slams', 'action' => 'view', $date->slam->slug]) : '' ?></td>
-                    <td><?= $this->Html->link($date->starttime, ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
                     <td><?= $this->Html->link($date->title, ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
+                    <?php if($currentUser): ?>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $date->slug]) ?>
                         <?php
@@ -33,6 +38,7 @@
                             }
                         ?>
                     </td>
+                    <?php endif ?>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
