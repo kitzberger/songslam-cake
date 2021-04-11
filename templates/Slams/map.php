@@ -20,11 +20,13 @@
             <ul class="map-list">
             <?php
                 $slamCollection = new Cake\Collection\Collection($slams);
-                $slamCollection = $slamCollection->combine('id', 'title', 'state');
+                $slamCollection = $slamCollection->combine('id',  function ($entity) { return $entity; }, 'state');
                 foreach ($slamCollection as $state => $stateSlams) {
+                    $stateSlams = new \Cake\Collection\Collection($stateSlams);
+                    $stateSlams = $stateSlams->combine('id', 'title', 'city');
                     echo '<li>' . __($state) . '<ul>';
-                    foreach ($stateSlams as $slam) {
-                        echo '<li>' . $slam . '</li>';
+                    foreach ($stateSlams as $city => $citySlams) {
+                        echo '<li>' . $city . ' (' . count($citySlams) . ')</li>';
                     }
                     echo '</ul></li>';
                 }
