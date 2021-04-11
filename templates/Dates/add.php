@@ -18,8 +18,8 @@
                 <legend><?= __('Add Date') ?></legend>
                 <?php
                     echo $this->Form->hidden('user_id', ['value' => $currentUser->getIdentifier()]);
-                    echo $this->Form->control('slam_id', ['options' => $slams]);
-                    echo $this->Form->control('starttime', ['empty' => true]);
+                    echo $this->Form->control('slam_id', ['options' => $slams, 'empty' => true]);
+                    echo $this->Form->control('starttime', ['empty' => true, 'step' => 60]);
                     echo $this->Form->control('title', ['label' => __('Title (optional)')]);
                 ?>
             </fieldset>

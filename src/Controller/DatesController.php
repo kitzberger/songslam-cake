@@ -99,7 +99,7 @@ class DatesController extends AppController
             $this->Flash->error(__('The date could not be saved. Please, try again.'));
         }
         $users = $this->Dates->Users->find('list', ['limit' => 200]);
-        $slams = $this->Dates->Slams->find('list', ['limit' => 200]);
+        $slams = $this->Dates->Slams->find('list', ['limit' => 200, 'order' => ['Slams.title ASC']]);
         $this->set(compact('date', 'users', 'slams'));
     }
 
