@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /users
+Disallow: /tags
+Disallow: /files
+Sitemap: /sitemap.xml
