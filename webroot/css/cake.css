@@ -189,10 +189,22 @@ h3 small .active { border-bottom: 2px solid #404041; }
 table td,
 table th { vertical-align: top; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
     .top-nav {
         margin: 0 auto;
+        padding: 1rem 1rem 0;
     }
+
+    .top-nav.top-nav-2nd-row {
+        padding: 0rem 1rem 1rem;
+    }
+    .container {
+        padding: 0;
+    }
+    .content {
+        padding: 1rem;
+    }
+
     .side-nav {
         margin-bottom: 1rem;
     }
@@ -209,6 +221,7 @@ table th { vertical-align: top; }
     .desc:after {
         content: " \2190";
     }
+    .table-responsive .actions { display: none; }
 }
 
 .badge { display: inline-block; background: #e2e2e2; border-radius: 5px; padding: 2px 10px; font-size: 0.8em; }
