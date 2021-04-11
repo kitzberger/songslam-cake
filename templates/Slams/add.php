@@ -12,6 +12,12 @@
         </div>
     </aside>
     <div class="column-responsive column-80">
+        <script type="text/javascript">
+            function setHiddenFields(saveAndAddDates = 0) {
+                document.getElementById('saveAndAddDates').value = saveAndAddDates
+                return true
+            }
+        </script>
         <div class="slams form content">
             <?= $this->Form->create($slam) ?>
             <fieldset>
@@ -31,7 +37,9 @@
                     echo $this->Form->control('tags._ids', ['options' => $tags]);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->hidden('saveAndAddDates', ['value' => 0, 'id' => 'saveAndAddDates']) ?>
+            <?= $this->Form->button(__('Submit and back'), ['onclick' => 'return setHiddenFields(0)']) ?>
+            <?= $this->Form->button(__('Submit and add dates'), ['onclick' => 'return setHiddenFields(1)']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

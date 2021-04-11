@@ -178,7 +178,11 @@ class SlamsController extends AppController
             if ($this->Slams->save($slam)) {
                 $this->Flash->success(__('The slam has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                if ($this->request->getData('saveAndAddDates')) {
+                    return $this->redirect(['controller' => 'Dates', 'action' => 'add', '?' => ['slam_id' => $slam->id]]);
+                } else {
+                    return $this->redirect(['action' => 'index']);
+                }
             }
             $this->Flash->error(__('The slam could not be saved. Please, try again.'));
         }
