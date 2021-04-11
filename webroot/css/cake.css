@@ -211,4 +211,7 @@ table th { vertical-align: top; }
 
 .files { margin-top: 2rem; }
 
+.paginator { margin-top: 2rem; }
+.paginator .pagination { margin-bottom: 0; }
+
 footer { margin-top: 2em; margin-bottom: 1em; }
