@@ -110,6 +110,11 @@ th {
 }
 
 /* Forms */
+.input > label {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
 .input.radio,
 .input.checkbox {
     margin-bottom: 2.0rem;
