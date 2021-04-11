@@ -90,12 +90,17 @@ class DatesController extends AppController
     public function add()
     {
         $date = $this->Dates->newEmptyEntity();
+
         if ($this->request->is('post')) {
             $date = $this->Dates->patchEntity($date, $this->request->getData());
             if ($this->Dates->save($date)) {
                 $this->Flash->success(__('The date has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                if ($this->request->getData('saveAndNew')) {
+                    return $this->redirect(['action' => 'add', '?' => ['slam_id' => $this->request->getData('slam_id')]]);
+                } else {
+                    return $this->redirect(['action' => 'index']);
+                }
             }
             $this->Flash->error(__('The date could not be saved. Please, try again.'));
         }
