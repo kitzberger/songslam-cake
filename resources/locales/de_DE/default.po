@@ -14,690 +14,693 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: /Dates/add.php:10
-#: /Dates/edit.php:10
-#: /Dates/index.php:18
-#: /Dates/view.php:10
-#: /Files/add.php:10
-#: /Files/edit.php:10
-#: /Files/index.php:17
-#: /Files/view.php:10
-#: /Slams/add.php:10
-#: /Slams/edit.php:10
-#: /Slams/index.php:27
-#: /Slams/view.php:10
-#: /SlamsTags/add.php:10
-#: /SlamsTags/edit.php:10
-#: /SlamsTags/index.php:16
-#: /SlamsTags/view.php:10
-#: /Tags/add.php:10
-#: /Tags/edit.php:10
-#: /Tags/index.php:18
-#: /Tags/view.php:10
-#: /Tags/view.php:57
-#: /Users/add.php:10
-#: /Users/edit.php:10
-#: /Users/index.php:18
-#: /Users/view.php:10
-#: /Users/view.php:53
-#: /Users/view.php:96
-msgid "Actions"
-msgstr ""
-
-#: /Dates/add.php:11
-#: /Dates/edit.php:16
-#: /Dates/view.php:13
-msgid "List Dates"
-msgstr "Terminliste"
-
-#: /Dates/add.php:18
-msgid "Add Date"
-msgstr "Termin hinzufügen"
-
-#: /Dates/add.php:23
-#: /Dates/edit.php:27
-msgid "Title (optional)"
-msgstr "Spezieller Titel (optional)"
-
-#: /Dates/add.php:26
-#: /Dates/edit.php:31
-#: /Files/add.php:26
-#: /Files/edit.php:30
-#: /Slams/add.php:34
-#: /Slams/edit.php:42
-#: /SlamsTags/add.php:22
-#: /SlamsTags/edit.php:27
-#: /Tags/add.php:24
-#: /Tags/edit.php:29
-#: /Users/add.php:25
-#: /Users/edit.php:30
-#: /Users/login.php:19
-msgid "Submit"
-msgstr "Absenden"
-
-#: /Dates/edit.php:12
-#: /Dates/index.php:32
-#: /Files/edit.php:12
-#: /Files/index.php:28
-#: /Slams/edit.php:12
-#: /Slams/index.php:43
-#: /SlamsTags/edit.php:12
-#: /SlamsTags/index.php:27
-#: /Tags/edit.php:12
-#: /Tags/index.php:31
-#: /Tags/view.php:77
-#: /Users/edit.php:12
-#: /Users/index.php:31
-#: /Users/view.php:69
-#: /Users/view.php:116
-msgid "Delete"
-msgstr "Löschen"
-
-#: /Dates/edit.php:14
-#: /Dates/index.php:32
-#: /Dates/view.php:12
-#: /Files/edit.php:14
-#: /Files/index.php:28
-#: /Files/view.php:12
-#: /Slams/edit.php:14
-#: /Slams/index.php:43
-#: /Slams/view.php:12
-#: /SlamsTags/edit.php:14
-#: /SlamsTags/index.php:27
-#: /SlamsTags/view.php:12
-#: /Tags/edit.php:14
-#: /Tags/index.php:31
-#: /Tags/view.php:12
-#: /Tags/view.php:77
-#: /Users/edit.php:14
-#: /Users/index.php:31
-#: /Users/view.php:12
-#: /Users/view.php:69
-#: /Users/view.php:116
-msgid "Are you sure you want to delete # {0}?"
-msgstr "Bist du sicher, dass du # {0} löschen möchtest?"
-
-#: /Dates/edit.php:23
-#: /Dates/view.php:11
-msgid "Edit Date"
-msgstr "Termin bearbeiten"
-
-#: /Dates/index.php:8
-#: /Dates/view.php:14
-msgid "New Date"
-msgstr "Termin anlegen"
-
-#: /Dates/index.php:9
-#: /layout/default.php:60
-msgid "Dates"
-msgstr "Termine"
-
-#: /Dates/index.php:28
-#: /Files/index.php:26
-#: /Slams/index.php:39
-#: /SlamsTags/index.php:25
-#: /Tags/index.php:29
-#: /Tags/view.php:75
-#: /Users/index.php:29
-#: /Users/view.php:67
-#: /Users/view.php:114
-msgid "View"
-msgstr "Anzeigen"
-
-#: /Dates/index.php:31
-#: /Files/index.php:27
-#: /Slams/index.php:42
-#: /SlamsTags/index.php:26
-#: /Tags/index.php:30
-#: /Tags/view.php:76
-#: /Users/index.php:30
-#: /Users/view.php:68
-#: /Users/view.php:115
-msgid "Edit"
-msgstr "Bearbeiten"
-
-#: /Dates/index.php:43
-#: /Files/index.php:37
-#: /Slams/index.php:54
-#: /SlamsTags/index.php:36
-#: /Tags/index.php:40
-#: /Users/index.php:40
-msgid "first"
-msgstr "Anfang"
-
-#: /Dates/index.php:44
-#: /Files/index.php:38
-#: /Slams/index.php:55
-#: /SlamsTags/index.php:37
-#: /Tags/index.php:41
-#: /Users/index.php:41
-msgid "previous"
-msgstr "zurück"
-
-#: /Dates/index.php:46
-#: /Files/index.php:40
-#: /Slams/index.php:57
-#: /SlamsTags/index.php:39
-#: /Tags/index.php:43
-#: /Users/index.php:43
-msgid "next"
-msgstr "vor"
-
-#: /Dates/index.php:47
-#: /Files/index.php:41
-#: /Slams/index.php:58
-#: /SlamsTags/index.php:40
-#: /Tags/index.php:44
-#: /Users/index.php:44
-msgid "last"
-msgstr "Ende"
-
-#: /Dates/index.php:49
-#: /Files/index.php:43
-#: /Slams/index.php:60
-#: /SlamsTags/index.php:42
-#: /Tags/index.php:46
-#: /Users/index.php:46
-msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
-msgstr "Seite {{page}} von {{pages}}, zeigt {{current}} Datensätze von {{count}} insgesamt"
-
-#: /Dates/view.php:12
-msgid "Delete Date"
-msgstr "Termin löschen"
-
-#: /Dates/view.php:22
-#: /SlamsTags/view.php:22
-msgid "Slam"
-msgstr ""
-
-#: /Dates/view.php:26
-#: /Slams/view.php:100
-#: /Users/view.php:49
-msgid "Starttime"
-msgstr ""
-
-#: /Dates/view.php:30
-#: /Files/view.php:40
-#: /Tags/view.php:30
-#: /Tags/view.php:55
-#: /Users/view.php:26
-#: /Users/view.php:51
-#: /Users/view.php:94
-msgid "Created"
-msgstr "Erstellt am"
-
-#: /Dates/view.php:34
-#: /Files/view.php:44
-#: /Slams/view.php:24
-#: /Tags/view.php:34
-#: /Tags/view.php:56
-#: /Users/view.php:30
-#: /Users/view.php:52
-#: /Users/view.php:95
-msgid "Modified"
-msgstr "Bearbeitet am"
-
-#: /Dates/view.php:39
-#: /Files/index.php:9
-#: /Slams/view.php:58
-#: /layout/default.php:62
-msgid "Files"
-msgstr "Dateien"
-
-#: /Files/add.php:11
-#: /Files/edit.php:16
-#: /Files/view.php:13
-msgid "List Files"
-msgstr "Dateiliste"
-
-#: /Files/add.php:18
-msgid "Add File"
-msgstr "Datei hinzufügen"
-
-#: /Files/edit.php:23
-#: /Files/view.php:11
-msgid "Edit File"
-msgstr "Datei bearbeiten"
-
-#: /Files/index.php:8
-#: /Files/view.php:14
-msgid "New File"
-msgstr "Neue Datei"
-
-#: /Files/view.php:12
-msgid "Delete File"
-msgstr "Datei löschen"
-
-#: /Files/view.php:22
-#: /Files/view.php:54
-#: /Files/view.php:73
-#: /Slams/view.php:22
-#: /Slams/view.php:83
-#: /Slams/view.php:101
-#: /Tags/view.php:22
-#: /Tags/view.php:46
-#: /Users/view.php:47
-#: /Users/view.php:85
-msgid "Title"
-msgstr "Titel"
-
-#: /Files/view.php:26
-msgid "User"
-msgstr "Benutzer"
-
-#: /Files/view.php:30
-msgid "File"
-msgstr "Datei"
-
-#: /Files/view.php:49
-#: /Slams/view.php:95
-#: /Users/view.php:39
-msgid "Related Dates"
-msgstr "Termine"
-
-#: /Files/view.php:55
-msgid "Date"
-msgstr "Termin"
-
-#: /Files/view.php:68
-#: /Tags/view.php:39
-#: /Users/view.php:78
-msgid "Related Slams"
-msgstr "Slams"
-
-#: /Files/view.php:74
-#: /Tags/view.php:51
-#: /Users/view.php:90
-msgid "City"
-msgstr "Stadt"
-
-#: /Slams/add.php:11
-#: /Slams/edit.php:16
-#: /Slams/view.php:13
-msgid "List Slams"
-msgstr "Slamliste"
-
-#: /Slams/add.php:18
-msgid "Add Slam"
-msgstr "Slam hinzufügen"
-
-#: /Slams/edit.php:23
-#: /Slams/view.php:11
-msgid "Edit Slam"
-msgstr "Slam bearbeiten"
-
-#: /Slams/index.php:8
-#: /Slams/view.php:14
-msgid "New Slam"
-msgstr "Neuer Slam"
-
-#: /Slams/index.php:10
-#: /Slams/map.php:16
-#: /layout/default.php:59
-msgid "Slams"
-msgstr "Slams"
-
-#: /Slams/index.php:12
-#: /Slams/map.php:18
-msgid "List"
-msgstr "Liste"
-
-#: /Slams/index.php:14
-#: /Slams/map.php:20
-msgid "Map"
-msgstr "Karte"
-
-#: /Slams/view.php:12
-msgid "Delete Slam"
-msgstr "Slam löschen"
-
-#: /Slams/view.php:28
-#: /Tags/view.php:49
-#: /Users/view.php:88
-msgid "Venue"
-msgstr "Location"
-
-#: /Slams/view.php:30
-msgid "Sleeping"
-msgstr "Eingeschlafen?"
-
-#: /Slams/view.php:31
-#: /Users/view.php:35
-msgid "Yes"
-msgstr "Ja"
-
-#: /Slams/view.php:31
-#: /Users/view.php:35
-msgid "No"
-msgstr "Nein"
-
-#: /Slams/view.php:34
-#: /Tags/view.php:50
-#: /Users/view.php:89
-msgid "Address"
-msgstr "Adresse"
-
-#: /Slams/view.php:41
-#: /Tags/view.php:54
-#: /Users/view.php:93
-msgid "Www"
-msgstr "Website"
-
-#: /Slams/view.php:46
-#: /Tags/view.php:48
-#: /Users/view.php:87
-msgid "Description"
-msgstr "Beschreibung"
-
-#: /Slams/view.php:52
-#: /Tags/view.php:53
-#: /Users/view.php:92
-msgid "Contact"
-msgstr "Ansprechpartner"
-
-#: /Slams/view.php:78
-msgid "Related Tags"
-msgstr "Tags"
-
-#: /SlamsTags/add.php:11
-#: /SlamsTags/edit.php:16
-#: /SlamsTags/view.php:13
-msgid "List Slams Tags"
-msgstr ""
-
-#: /SlamsTags/add.php:18
-msgid "Add Slams Tag"
-msgstr ""
-
-#: /SlamsTags/edit.php:23
-#: /SlamsTags/view.php:11
-msgid "Edit Slams Tag"
-msgstr ""
-
-#: /SlamsTags/index.php:8
-#: /SlamsTags/view.php:14
-msgid "New Slams Tag"
-msgstr ""
-
-#: /SlamsTags/index.php:9
-msgid "Slams Tags"
-msgstr ""
-
-#: /SlamsTags/view.php:12
-msgid "Delete Slams Tag"
-msgstr ""
-
-#: /SlamsTags/view.php:26
-msgid "Tag"
-msgstr ""
-
-#: /Tags/add.php:11
-#: /Tags/edit.php:16
-#: /Tags/view.php:13
-msgid "List Tags"
-msgstr ""
-
-#: /Tags/add.php:18
-msgid "Add Tag"
-msgstr ""
-
-#: /Tags/edit.php:23
-#: /Tags/view.php:11
-msgid "Edit Tag"
-msgstr ""
-
-#: /Tags/index.php:8
-#: /Tags/view.php:14
-msgid "New Tag"
-msgstr ""
-
-#: /Tags/index.php:9
-#: /layout/default.php:61
-msgid "Tags"
-msgstr ""
-
-#: /Tags/view.php:12
-msgid "Delete Tag"
-msgstr ""
-
-#: /Tags/view.php:26
-#: /Tags/view.php:44
-#: /Users/view.php:44
-#: /Users/view.php:83
-msgid "Id"
-msgstr ""
-
-#: /Tags/view.php:45
-#: /Users/view.php:45
-#: /Users/view.php:84
-msgid "User Id"
-msgstr ""
-
-#: /Tags/view.php:47
-#: /Users/view.php:48
-#: /Users/view.php:86
-msgid "Slug"
-msgstr ""
-
-#: /Tags/view.php:52
-#: /Users/view.php:91
-msgid "Zip"
-msgstr ""
-
-#: /Users/add.php:11
-#: /Users/edit.php:16
-#: /Users/view.php:13
-msgid "List Users"
-msgstr ""
-
-#: /Users/add.php:18
-msgid "Add User"
-msgstr ""
-
-#: /Users/edit.php:23
-#: /Users/view.php:11
-msgid "Edit User"
-msgstr ""
-
-#: /Users/index.php:8
-#: /Users/view.php:14
-msgid "New User"
-msgstr ""
-
-#: /Users/index.php:9
-#: /layout/default.php:58
-msgid "Users"
-msgstr "Benutzer"
-
-#: /Users/login.php:10
-#: /layout/default.php:54
-msgid "Login"
-msgstr ""
-
-#: /Users/login.php:13
-msgid "Please enter your credentials here!"
-msgstr "Bitte gib deine Zugangsdaten hier ein!"
-
-#: /Users/login.php:15
-msgid "E-Mail"
-msgstr ""
-
-#: /Users/view.php:12
-msgid "Delete User"
-msgstr "Benutzer löschen"
-
-#: /Users/view.php:22
-msgid "Email"
-msgstr "E-Mail"
-
-#: /Users/view.php:34
-msgid "Admin"
-msgstr "Admin"
-
-#: /Users/view.php:46
-msgid "Slam Id"
-msgstr ""
-
-#: /Users/view.php:50
-msgid "Endtime"
-msgstr ""
-
-#: /element/files/embed-inline.php:22
-#: /element/files/embed.php:26
-msgid "Download"
-msgstr ""
-
-#: /element/files/gallery.php:107
-msgid "Start slideshow"
-msgstr ""
-
-#: /element/sword.php:10
-msgid "Search"
-msgstr "Suche"
-
-#: /element/sword.php:11
-msgid "Search ..."
-msgstr "Suchwort..."
-
-#: /element/sword.php:25
-msgid "State"
-msgstr "Bundesland"
-
-#: /element/sword.php:37
-msgid "Include sleeping?"
-msgstr "Eingeschlafene miteinschließen?"
-
-#: /element/sword.php:43
-msgid "Filter"
-msgstr ""
-
-#: /layout/default.php:48
-msgid "Logged in as: "
-msgstr "Eingeloggt als: "
-
-#: /layout/default.php:50
-msgid "Logout"
-msgstr ""
-
-#: /layout/default.php:52
-msgid "Not logged in yet."
-msgstr "Noch nicht eingeloggt."
-
-#: /layout/error.php:40
-msgid "Back"
-msgstr "Zurück"
-
-#: /Controller/DatesController.php:95
-#: /Controller/DatesController.php:121
+#: Controller/DatesController.php:95
+#: Controller/DatesController.php:121
 msgid "The date has been saved."
 msgstr ""
 
-#: /Controller/DatesController.php:99
-#: /Controller/DatesController.php:125
+#: Controller/DatesController.php:99
+#: Controller/DatesController.php:125
 msgid "The date could not be saved. Please, try again."
 msgstr ""
 
-#: /Controller/DatesController.php:144
+#: Controller/DatesController.php:144
 msgid "The date has been deleted."
 msgstr ""
 
-#: /Controller/DatesController.php:146
+#: Controller/DatesController.php:146
 msgid "The date could not be deleted. Please, try again."
 msgstr ""
 
-#: /Controller/FilesController.php:70
-#: /Controller/FilesController.php:155
+#: Controller/FilesController.php:70
+#: Controller/FilesController.php:155
 msgid "File upload failed! Message:"
 msgstr ""
 
-#: /Controller/FilesController.php:80
-#: /Controller/FilesController.php:109
+#: Controller/FilesController.php:80
+#: Controller/FilesController.php:109
 msgid "The file has been saved."
 msgstr ""
 
-#: /Controller/FilesController.php:83
-#: /Controller/FilesController.php:113
-#: /Controller/FilesController.php:174
+#: Controller/FilesController.php:83
+#: Controller/FilesController.php:113
+#: Controller/FilesController.php:174
 msgid "The file could not be saved. Please, try again."
 msgstr ""
 
-#: /Controller/FilesController.php:133
+#: Controller/FilesController.php:133
 msgid "The file has been deleted."
 msgstr ""
 
-#: /Controller/FilesController.php:135
+#: Controller/FilesController.php:135
 msgid "The file could not be deleted. Please, try again."
 msgstr ""
 
-#: /Controller/SlamsController.php:138
-#: /Controller/SlamsController.php:164
+#: Controller/SlamsController.php:138
+#: Controller/SlamsController.php:164
 msgid "The slam has been saved."
 msgstr ""
 
-#: /Controller/SlamsController.php:142
-#: /Controller/SlamsController.php:168
+#: Controller/SlamsController.php:142
+#: Controller/SlamsController.php:168
 msgid "The slam could not be saved. Please, try again."
 msgstr ""
 
-#: /Controller/SlamsController.php:187
+#: Controller/SlamsController.php:187
 msgid "The slam has been deleted."
 msgstr ""
 
-#: /Controller/SlamsController.php:189
+#: Controller/SlamsController.php:189
 msgid "The slam could not be deleted. Please, try again."
 msgstr ""
 
-#: /Controller/SlamsTagsController.php:57
-#: /Controller/SlamsTagsController.php:83
+#: Controller/SlamsTagsController.php:57
+#: Controller/SlamsTagsController.php:83
 msgid "The slams tag has been saved."
 msgstr ""
 
-#: /Controller/SlamsTagsController.php:61
-#: /Controller/SlamsTagsController.php:87
+#: Controller/SlamsTagsController.php:61
+#: Controller/SlamsTagsController.php:87
 msgid "The slams tag could not be saved. Please, try again."
 msgstr ""
 
-#: /Controller/SlamsTagsController.php:106
+#: Controller/SlamsTagsController.php:106
 msgid "The slams tag has been deleted."
 msgstr ""
 
-#: /Controller/SlamsTagsController.php:108
+#: Controller/SlamsTagsController.php:108
 msgid "The slams tag could not be deleted. Please, try again."
 msgstr ""
 
-#: /Controller/TagsController.php:54
-#: /Controller/TagsController.php:79
+#: Controller/TagsController.php:54
+#: Controller/TagsController.php:79
 msgid "The tag has been saved."
 msgstr ""
 
-#: /Controller/TagsController.php:58
-#: /Controller/TagsController.php:83
+#: Controller/TagsController.php:58
+#: Controller/TagsController.php:83
 msgid "The tag could not be saved. Please, try again."
 msgstr ""
 
-#: /Controller/TagsController.php:101
+#: Controller/TagsController.php:101
 msgid "The tag has been deleted."
 msgstr ""
 
-#: /Controller/TagsController.php:103
+#: Controller/TagsController.php:103
 msgid "The tag could not be deleted. Please, try again."
 msgstr ""
 
-#: /Controller/UsersController.php:79
-#: /Controller/UsersController.php:103
+#: Controller/UsersController.php:79
+#: Controller/UsersController.php:103
 msgid "The user has been saved."
 msgstr ""
 
-#: /Controller/UsersController.php:83
-#: /Controller/UsersController.php:107
+#: Controller/UsersController.php:83
+#: Controller/UsersController.php:107
 msgid "The user could not be saved. Please, try again."
 msgstr ""
 
-#: /Controller/UsersController.php:124
+#: Controller/UsersController.php:124
 msgid "The user has been deleted."
 msgstr ""
 
-#: /Controller/UsersController.php:126
+#: Controller/UsersController.php:126
 msgid "The user could not be deleted. Please, try again."
 msgstr ""
 
+#: Dates/add.php:10
+#: Dates/edit.php:10
+#: Dates/index.php:18
+#: Dates/view.php:10
+#: Files/add.php:10
+#: Files/edit.php:10
+#: Files/index.php:17
+#: Files/view.php:10
+#: Slams/add.php:10
+#: Slams/edit.php:10
+#: Slams/index.php:27
+#: Slams/view.php:10
+#: SlamsTags/add.php:10
+#: SlamsTags/edit.php:10
+#: SlamsTags/index.php:16
+#: SlamsTags/view.php:10
+#: Tags/add.php:10
+#: Tags/edit.php:10
+#: Tags/index.php:18
+#: Tags/view.php:10
+#: Tags/view.php:57
+#: Users/add.php:10
+#: Users/edit.php:10
+#: Users/index.php:18
+#: Users/view.php:10
+#: Users/view.php:53
+#: Users/view.php:96
+msgid "Actions"
+msgstr ""
+
+#: Dates/add.php:11
+#: Dates/edit.php:16
+#: Dates/view.php:13
+msgid "List Dates"
+msgstr "Terminliste"
+
+#: Dates/add.php:18
+msgid "Add Date"
+msgstr "Termin hinzufügen"
+
+#: Dates/add.php:23
+#: Dates/edit.php:27
+msgid "Title (optional)"
+msgstr "Spezieller Titel (optional)"
+
+#: Dates/add.php:26
+#: Dates/edit.php:31
+#: Files/add.php:26
+#: Files/edit.php:30
+#: Slams/add.php:34
+#: Slams/edit.php:42
+#: SlamsTags/add.php:22
+#: SlamsTags/edit.php:27
+#: Tags/add.php:24
+#: Tags/edit.php:29
+#: Users/add.php:25
+#: Users/edit.php:30
+#: Users/login.php:19
+msgid "Submit"
+msgstr "Absenden"
+
+#: Dates/edit.php:12
+#: Dates/index.php:32
+#: Files/edit.php:12
+#: Files/index.php:28
+#: Slams/edit.php:12
+#: Slams/index.php:43
+#: SlamsTags/edit.php:12
+#: SlamsTags/index.php:27
+#: Tags/edit.php:12
+#: Tags/index.php:31
+#: Tags/view.php:77
+#: Users/edit.php:12
+#: Users/index.php:31
+#: Users/view.php:69
+#: Users/view.php:116
+msgid "Delete"
+msgstr "Löschen"
+
+#: Dates/edit.php:14
+#: Dates/index.php:32
+#: Dates/view.php:12
+#: Files/edit.php:14
+#: Files/index.php:28
+#: Files/view.php:12
+#: Slams/edit.php:14
+#: Slams/index.php:43
+#: Slams/view.php:12
+#: SlamsTags/edit.php:14
+#: SlamsTags/index.php:27
+#: SlamsTags/view.php:12
+#: Tags/edit.php:14
+#: Tags/index.php:31
+#: Tags/view.php:12
+#: Tags/view.php:77
+#: Users/edit.php:14
+#: Users/index.php:31
+#: Users/view.php:12
+#: Users/view.php:69
+#: Users/view.php:116
+msgid "Are you sure you want to delete # {0}?"
+msgstr "Bist du sicher, dass du # {0} löschen möchtest?"
+
+#: Dates/edit.php:23
+#: Dates/view.php:11
+msgid "Edit Date"
+msgstr "Termin bearbeiten"
+
+#: Dates/index.php:8
+#: Dates/view.php:14
+msgid "New Date"
+msgstr "Termin anlegen"
+
+#: Dates/index.php:9
+#: layout/default.php:60
+msgid "Dates"
+msgstr "Termine"
+
+#: Dates/index.php:28
+#: Files/index.php:26
+#: Slams/index.php:39
+#: SlamsTags/index.php:25
+#: Tags/index.php:29
+#: Tags/view.php:75
+#: Users/index.php:29
+#: Users/view.php:67
+#: Users/view.php:114
+msgid "View"
+msgstr "Anzeigen"
+
+#: Dates/index.php:31
+#: Files/index.php:27
+#: Slams/index.php:42
+#: SlamsTags/index.php:26
+#: Tags/index.php:30
+#: Tags/view.php:76
+#: Users/index.php:30
+#: Users/view.php:68
+#: Users/view.php:115
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: Dates/index.php:43
+#: Files/index.php:37
+#: Slams/index.php:54
+#: SlamsTags/index.php:36
+#: Tags/index.php:40
+#: Users/index.php:40
+msgid "first"
+msgstr "Anfang"
+
+#: Dates/index.php:44
+#: Files/index.php:38
+#: Slams/index.php:55
+#: SlamsTags/index.php:37
+#: Tags/index.php:41
+#: Users/index.php:41
+msgid "previous"
+msgstr "zurück"
+
+#: Dates/index.php:46
+#: Files/index.php:40
+#: Slams/index.php:57
+#: SlamsTags/index.php:39
+#: Tags/index.php:43
+#: Users/index.php:43
+msgid "next"
+msgstr "vor"
+
+#: Dates/index.php:47
+#: Files/index.php:41
+#: Slams/index.php:58
+#: SlamsTags/index.php:40
+#: Tags/index.php:44
+#: Users/index.php:44
+msgid "last"
+msgstr "Ende"
+
+#: Dates/index.php:49
+#: Files/index.php:43
+#: Slams/index.php:60
+#: SlamsTags/index.php:42
+#: Tags/index.php:46
+#: Users/index.php:46
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr "Seite {{page}} von {{pages}}, zeigt {{current}} Datensätze von {{count}} insgesamt"
+
+#: Dates/view.php:12
+msgid "Delete Date"
+msgstr "Termin löschen"
+
+#: Dates/view.php:22
+#: SlamsTags/view.php:22
+msgid "Slam"
+msgstr ""
+
+#: Dates/view.php:26
+#: Slams/view.php:100
+#: Users/view.php:49
+msgid "Starttime"
+msgstr ""
+
+#: Dates/view.php:30
+#: Files/view.php:40
+#: Tags/view.php:30
+#: Tags/view.php:55
+#: Users/view.php:26
+#: Users/view.php:51
+#: Users/view.php:94
+msgid "Created"
+msgstr "Erstellt am"
+
+#: Dates/view.php:34
+#: Files/view.php:44
+#: Slams/view.php:24
+#: Tags/view.php:34
+#: Tags/view.php:56
+#: Users/view.php:30
+#: Users/view.php:52
+#: Users/view.php:95
+msgid "Modified"
+msgstr "Bearbeitet am"
+
+#: Dates/view.php:39
+#: Files/index.php:9
+#: Slams/view.php:58
+#: layout/default.php:62
+msgid "Files"
+msgstr "Dateien"
+
+#: Files/add.php:11
+#: Files/edit.php:16
+#: Files/view.php:13
+msgid "List Files"
+msgstr "Dateiliste"
+
+#: Files/add.php:18
+msgid "Add File"
+msgstr "Datei hinzufügen"
+
+#: Files/edit.php:23
+#: Files/view.php:11
+msgid "Edit File"
+msgstr "Datei bearbeiten"
+
+#: Files/index.php:8
+#: Files/view.php:14
+msgid "New File"
+msgstr "Neue Datei"
+
+#: Files/view.php:12
+msgid "Delete File"
+msgstr "Datei löschen"
+
+#: Files/view.php:22
+#: Files/view.php:54
+#: Files/view.php:73
+#: Slams/view.php:22
+#: Slams/view.php:83
+#: Slams/view.php:101
+#: Tags/view.php:22
+#: Tags/view.php:46
+#: Users/view.php:47
+#: Users/view.php:85
+msgid "Title"
+msgstr "Titel"
+
+#: Files/view.php:26
+msgid "User"
+msgstr "Benutzer"
+
+#: Files/view.php:30
+msgid "File"
+msgstr "Datei"
+
+#: Files/view.php:49
+#: Slams/view.php:95
+#: Users/view.php:39
+msgid "Related Dates"
+msgstr "Termine"
+
+#: Files/view.php:55
+msgid "Date"
+msgstr "Termin"
+
+#: Files/view.php:68
+#: Tags/view.php:39
+#: Users/view.php:78
+msgid "Related Slams"
+msgstr "Slams"
+
+#: Files/view.php:74
+#: Tags/view.php:51
+#: Users/view.php:90
+msgid "City"
+msgstr "Stadt"
+
+#: Slams/add.php:11
+#: Slams/edit.php:16
+#: Slams/view.php:13
+msgid "List Slams"
+msgstr "Slamliste"
+
+#: Slams/add.php:18
+msgid "Add Slam"
+msgstr "Slam hinzufügen"
+
+#: Slams/edit.php:23
+#: Slams/view.php:11
+msgid "Edit Slam"
+msgstr "Slam bearbeiten"
+
+#: Slams/index.php:8
+#: Slams/view.php:14
+msgid "New Slam"
+msgstr "Neuer Slam"
+
+#: Slams/index.php:10
+#: Slams/map.php:16
+#: layout/default.php:59
+msgid "Slams"
+msgstr "Slams"
+
+#: Slams/index.php:12
+#: Slams/map.php:18
+msgid "List"
+msgstr "Liste"
+
+#: Slams/index.php:14
+#: Slams/map.php:20
+msgid "Map"
+msgstr "Karte"
+
+#: Slams/view.php:12
+msgid "Delete Slam"
+msgstr "Slam löschen"
+
+#: Slams/view.php:28
+#: Tags/view.php:49
+#: Users/view.php:88
+msgid "Venue"
+msgstr "Location"
+
+#: Slams/view.php:30
+msgid "Sleeping"
+msgstr "Eingeschlafen?"
+
+#: Slams/view.php:31
+#: Users/view.php:35
+msgid "Yes"
+msgstr "Ja"
+
+#: Slams/view.php:31
+#: Users/view.php:35
+msgid "No"
+msgstr "Nein"
+
+#: Slams/view.php:34
+#: Tags/view.php:50
+#: Users/view.php:89
+msgid "Address"
+msgstr "Adresse"
+
+#: Slams/view.php:41
+#: Tags/view.php:54
+#: Users/view.php:93
+msgid "Www"
+msgstr "Website"
+
+#: Slams/view.php:46
+#: Tags/view.php:48
+#: Users/view.php:87
+msgid "Description"
+msgstr "Beschreibung"
+
+#: Slams/view.php:52
+#: Tags/view.php:53
+#: Users/view.php:92
+msgid "Contact"
+msgstr "Ansprechpartner"
+
+#: Slams/view.php:78
+msgid "Related Tags"
+msgstr "Tags"
+
+#: SlamsTags/add.php:11
+#: SlamsTags/edit.php:16
+#: SlamsTags/view.php:13
+msgid "List Slams Tags"
+msgstr ""
+
+#: SlamsTags/add.php:18
+msgid "Add Slams Tag"
+msgstr ""
+
+#: SlamsTags/edit.php:23
+#: SlamsTags/view.php:11
+msgid "Edit Slams Tag"
+msgstr ""
+
+#: SlamsTags/index.php:8
+#: SlamsTags/view.php:14
+msgid "New Slams Tag"
+msgstr ""
+
+#: SlamsTags/index.php:9
+msgid "Slams Tags"
+msgstr ""
+
+#: SlamsTags/view.php:12
+msgid "Delete Slams Tag"
+msgstr ""
+
+#: SlamsTags/view.php:26
+msgid "Tag"
+msgstr ""
+
+#: Tags/add.php:11
+#: Tags/edit.php:16
+#: Tags/view.php:13
+msgid "List Tags"
+msgstr ""
+
+#: Tags/add.php:18
+msgid "Add Tag"
+msgstr ""
+
+#: Tags/edit.php:23
+#: Tags/view.php:11
+msgid "Edit Tag"
+msgstr ""
+
+#: Tags/index.php:8
+#: Tags/view.php:14
+msgid "New Tag"
+msgstr ""
+
+#: Tags/index.php:9
+#: layout/default.php:61
+msgid "Tags"
+msgstr ""
+
+#: Tags/view.php:12
+msgid "Delete Tag"
+msgstr ""
+
+#: Tags/view.php:26
+#: Tags/view.php:44
+#: Users/view.php:44
+#: Users/view.php:83
+msgid "Id"
+msgstr ""
+
+#: Tags/view.php:45
+#: Users/view.php:45
+#: Users/view.php:84
+msgid "User Id"
+msgstr ""
+
+#: Tags/view.php:47
+#: Users/view.php:48
+#: Users/view.php:86
+msgid "Slug"
+msgstr ""
+
+#: Tags/view.php:52
+#: Users/view.php:91
+msgid "Zip"
+msgstr ""
+
+#: Users/add.php:11
+#: Users/edit.php:16
+#: Users/view.php:13
+msgid "List Users"
+msgstr ""
+
+#: Users/add.php:18
+msgid "Add User"
+msgstr ""
+
+#: Users/edit.php:23
+#: Users/view.php:11
+msgid "Edit User"
+msgstr ""
+
+#: Users/index.php:8
+#: Users/view.php:14
+msgid "New User"
+msgstr ""
+
+#: Users/index.php:9
+#: layout/default.php:58
+msgid "Users"
+msgstr "Benutzer"
+
+#: Users/login.php:10
+#: layout/default.php:54
+msgid "Login"
+msgstr ""
+
+#: Users/login.php:13
+msgid "Please enter your credentials here!"
+msgstr "Bitte gib deine Zugangsdaten hier ein!"
+
+#: Users/login.php:15
+msgid "E-Mail"
+msgstr ""
+
+#: Users/view.php:12
+msgid "Delete User"
+msgstr "Benutzer löschen"
+
+#: Users/view.php:22
+msgid "Email"
+msgstr "E-Mail"
+
+#: Users/view.php:34
+msgid "Admin"
+msgstr "Admin"
+
+#: Users/view.php:46
+msgid "Slam Id"
+msgstr ""
+
+#: Users/view.php:50
+msgid "Endtime"
+msgstr ""
+
+#: element/files/embed-inline.php:22
+#: element/files/embed.php:26
+msgid "Download"
+msgstr ""
+
+#: element/files/gallery.php:107
+msgid "Start slideshow"
+msgstr ""
+
+#: element/sword.php:10
+msgid "Search"
+msgstr "Suche"
+
+#: element/sword.php:11
+msgid "Search ..."
+msgstr "Suchwort..."
+
+#: element/sword.php:25
+msgid "State"
+msgstr "Bundesland"
+
+#: element/sword.php:37
+msgid "Include sleeping?"
+msgstr "Eingeschlafene miteinschließen?"
+
+#: element/sword.php:43
+msgid "Filter"
+msgstr ""
+
+#: layout/default.php:48
+msgid "Logged in as: "
+msgstr "Eingeloggt als: "
+
+#: layout/default.php:50
+msgid "Logout"
+msgstr ""
+
+#: layout/default.php:71
+msgid "Imprint"
+msgstr "Impressum"
+
+#: layout/default.php:52
+msgid "Not logged in yet."
+msgstr "Noch nicht eingeloggt."
+
+#: layout/error.php:40
+msgid "Back"
+msgstr "Zurück"
