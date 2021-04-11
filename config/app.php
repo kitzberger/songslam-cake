@@ -6,7 +6,6 @@ use Cake\Database\Driver\Mysql;
 use Cake\Error\ExceptionRenderer;
 use Cake\Log\Engine\FileLog;
 use Cake\Mailer\Transport\MailTransport;
-use Cake\Mailer\Transport\SmtpTransport;
 
 return [
     /*
@@ -206,7 +205,7 @@ return [
      */
     'EmailTransport' => [
         'default' => [
-            'className' => SmtpTransport::class,
+            'className' => MailTransport::class,
             /*
              * The keys host, port, timeout, username, password, client and tls
              * are used in SMTP transports
