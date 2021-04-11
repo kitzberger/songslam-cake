@@ -13,12 +13,7 @@
 
 <div class="dates index content">
     <h3>
-        <?= __('Slams') ?>
-        <small>
-            <?= $this->Html->link(__('List'), ['action' => 'index']) ?>
-            /
-            <?= $this->Html->link(__('Map'), ['action' => 'map'], ['class' => 'active']) ?>
-        </small>
+        <?= __('Map') ?>
     </h3>
     <div class="row">
         <div class="column column-25">

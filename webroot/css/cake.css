@@ -38,8 +38,12 @@ th {
     align-items: center;
     justify-content: space-between;
     max-width: 112rem;
-    padding: 2rem;
-    margin: 0 auto 2rem;
+    padding: 2rem 2rem 0;
+    margin: 0 auto;
+}
+.top-nav.top-nav-2nd-row {
+    padding: 0rem 2rem 2rem;
+    margin: 0 auto;
 }
 .top-nav-title a {
     font-size: 2.4rem;

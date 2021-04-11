@@ -40,24 +40,33 @@
         <div class="top-nav-title">
             <a href="/"><span>Song</span>Slams<span>.eu</span></a>
             <div>
-                Verzeichnis europäischer SongSlam Veranstaltungen.<br>
-                Directory of european SongSlam events.<br>
+                <?php
+                    if ($currentUser) {
+                        echo '<span>' . __('Logged in as: ') . $currentUser->get('email') . '</span>';
+                    } else {
+                        echo 'Verzeichnis europäischer SongSlam Veranstaltungen.<br>';
+                        echo 'Directory of european SongSlam events.';
+                    }
+                ?>
             </div>
         </div>
         <div class="top-nav-links">
+            <?= $this->Html->link(__('Slams'), ['controller' => 'Slams', 'action' => 'index'], ['class' => $controller=='Slams' && $action!='map'?'active':'']) ?>
+            <?= $this->Html->link(__('Map'),   ['controller' => 'Slams', 'action' => 'map'],   ['class' => $controller=='Slams' && $action=='map'?'active':'']) ?>
+            <?= $this->Html->link(__('Dates'), ['controller' => 'Dates', 'action' => 'index'], ['class' => $controller=='Dates'?'active':'']) ?>
             <?php
                 if ($currentUser) {
-                    echo '<span>' . __('Logged in as: ') . $currentUser->get('email') . '</span>';
-                    echo ' <span>|</span>';
                     echo $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']);
                 } else {
-                    echo $this->Html->link(__('Login'), ['controller' => 'Users', 'action' => 'login']);
+                    echo $this->Html->link(__('Login'), ['controller' => 'Users', 'action' => 'login'], ['class' => $controller=='Users'?'active':'']);
                 }
             ?>
-            <?= '<span>|</span>'; ?>
+        </div>
+    </nav>
+    <nav class="top-nav top-nav-2nd-row">
+        <div class="top-nav-links"></div>
+        <div class="top-nav-links">
             <?= $currentUser ? $this->Html->link(__('Users'), ['controller' => 'Users', 'action' => 'index'], ['class' => $controller==='Users'?'active':'']) : '' ?>
-            <?= $this->Html->link(__('Slams'), ['controller' => 'Slams', 'action' => 'index'], ['class' => $controller==='Slams'?'active':'']) ?>
-            <?= $this->Html->link(__('Dates'), ['controller' => 'Dates', 'action' => 'index'], ['class' => $controller==='Dates'?'active':'']) ?>
             <?= $currentUser ? $this->Html->link(__('Tags'),  ['controller' => 'Tags',  'action' => 'index'], ['class' => $controller==='Tags'?'active':'']) : '' ?>
             <?= $currentUser ? $this->Html->link(__('Files'),  ['controller' => 'Files',  'action' => 'index'], ['class' => $controller==='Files'?'active':'']) : '' ?>
         </div>

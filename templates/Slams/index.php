@@ -14,11 +14,6 @@
     ?>
     <h3>
         <?= __('Slams') ?>
-        <small>
-            <?= $this->Html->link(__('List'), ['action' => 'index'], ['class' => 'active']) ?>
-            /
-            <?= $this->Html->link(__('Map'), ['action' => 'map']) ?>
-        </small>
     </h3>
     <?= $this->element('sword', ['sword' => $sword]) ?>
     <div class="table-responsive">
