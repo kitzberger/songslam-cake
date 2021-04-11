@@ -39,6 +39,10 @@
     <nav class="top-nav">
         <div class="top-nav-title">
             <a href="/"><span>Song</span>Slams<span>.eu</span></a>
+            <div>
+                Verzeichnis europäischer SongSlam Veranstaltungen.<br>
+                Directory of european SongSlam events.<br>
+            </div>
         </div>
         <div class="top-nav-links">
             <?php

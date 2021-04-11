@@ -24,7 +24,7 @@
                     <th><?= $this->Paginator->sort('venue') ?></th>
                     <th><?= $this->Paginator->sort('title') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th class="actions"></th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +34,7 @@
                     <td><?= h($slam->city) ?></td>
                     <td><?= h($slam->venue) ?></td>
                     <td><?= $this->Html->link($slam->title, ['action' => 'view', $slam->slug]) ?></td>
-                    <td><?= h($slam->modified) ?></td>
+                    <td><?= h($slam->modified->format('d.m.Y')) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $slam->slug]) ?>
                         <?php
