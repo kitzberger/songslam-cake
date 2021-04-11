@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2021-04-10 18:40+0200\n"
+"POT-Creation-Date: 2021-04-11 03:13+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -56,21 +56,21 @@ msgstr ""
 msgid "The file could not be deleted. Please, try again."
 msgstr ""
 
-#: Controller/SlamsController.php:138
-#: Controller/SlamsController.php:164
+#: Controller/SlamsController.php:154
+#: Controller/SlamsController.php:180
 msgid "The slam has been saved."
 msgstr ""
 
-#: Controller/SlamsController.php:142
-#: Controller/SlamsController.php:168
+#: Controller/SlamsController.php:158
+#: Controller/SlamsController.php:184
 msgid "The slam could not be saved. Please, try again."
 msgstr ""
 
-#: Controller/SlamsController.php:187
+#: Controller/SlamsController.php:203
 msgid "The slam has been deleted."
 msgstr ""
 
-#: Controller/SlamsController.php:189
+#: Controller/SlamsController.php:205
 msgid "The slam could not be deleted. Please, try again."
 msgstr ""
 
@@ -138,7 +138,6 @@ msgstr ""
 #: Files/view.php:10
 #: Slams/add.php:10
 #: Slams/edit.php:10
-#: Slams/index.php:27
 #: Slams/view.php:10
 #: SlamsTags/add.php:10
 #: SlamsTags/edit.php:10
@@ -179,6 +178,7 @@ msgstr ""
 #: Files/edit.php:30
 #: Slams/add.php:34
 #: Slams/edit.php:42
+#: Slams/suggest.php:28
 #: SlamsTags/add.php:22
 #: SlamsTags/edit.php:27
 #: Tags/add.php:24
@@ -194,7 +194,7 @@ msgstr ""
 #: Files/edit.php:12
 #: Files/index.php:28
 #: Slams/edit.php:12
-#: Slams/index.php:43
+#: Slams/index.php:49
 #: SlamsTags/edit.php:12
 #: SlamsTags/index.php:27
 #: Tags/edit.php:12
@@ -214,7 +214,7 @@ msgstr ""
 #: Files/index.php:28
 #: Files/view.php:12
 #: Slams/edit.php:14
-#: Slams/index.php:43
+#: Slams/index.php:49
 #: Slams/view.php:12
 #: SlamsTags/edit.php:14
 #: SlamsTags/index.php:27
@@ -242,13 +242,13 @@ msgid "New Date"
 msgstr ""
 
 #: Dates/index.php:9
-#: layout/default.php:56
+#: layout/default.php:60
 msgid "Dates"
 msgstr ""
 
 #: Dates/index.php:28
 #: Files/index.php:26
-#: Slams/index.php:39
+#: Slams/index.php:45
 #: SlamsTags/index.php:25
 #: Tags/index.php:29
 #: Tags/view.php:75
@@ -260,7 +260,7 @@ msgstr ""
 
 #: Dates/index.php:31
 #: Files/index.php:27
-#: Slams/index.php:42
+#: Slams/index.php:48
 #: SlamsTags/index.php:26
 #: Tags/index.php:30
 #: Tags/view.php:76
@@ -272,7 +272,7 @@ msgstr ""
 
 #: Dates/index.php:43
 #: Files/index.php:37
-#: Slams/index.php:54
+#: Slams/index.php:60
 #: SlamsTags/index.php:36
 #: Tags/index.php:40
 #: Users/index.php:40
@@ -281,7 +281,7 @@ msgstr ""
 
 #: Dates/index.php:44
 #: Files/index.php:38
-#: Slams/index.php:55
+#: Slams/index.php:61
 #: SlamsTags/index.php:37
 #: Tags/index.php:41
 #: Users/index.php:41
@@ -290,7 +290,7 @@ msgstr ""
 
 #: Dates/index.php:46
 #: Files/index.php:40
-#: Slams/index.php:57
+#: Slams/index.php:63
 #: SlamsTags/index.php:39
 #: Tags/index.php:43
 #: Users/index.php:43
@@ -299,7 +299,7 @@ msgstr ""
 
 #: Dates/index.php:47
 #: Files/index.php:41
-#: Slams/index.php:58
+#: Slams/index.php:64
 #: SlamsTags/index.php:40
 #: Tags/index.php:44
 #: Users/index.php:44
@@ -308,7 +308,7 @@ msgstr ""
 
 #: Dates/index.php:49
 #: Files/index.php:43
-#: Slams/index.php:60
+#: Slams/index.php:66
 #: SlamsTags/index.php:42
 #: Tags/index.php:46
 #: Users/index.php:46
@@ -354,7 +354,7 @@ msgstr ""
 #: Dates/view.php:39
 #: Files/index.php:9
 #: Slams/view.php:65
-#: layout/default.php:58
+#: layout/default.php:62
 msgid "Files"
 msgstr ""
 
@@ -447,25 +447,50 @@ msgstr ""
 msgid "Edit Slam"
 msgstr ""
 
-#: Slams/index.php:8
+#: Slams/index.php:10
+#: Slams/index.php:12
 #: Slams/view.php:14
 msgid "New Slam"
 msgstr ""
 
-#: Slams/index.php:10
+#: Slams/index.php:16
 #: Slams/map.php:16
-#: layout/default.php:55
+#: layout/default.php:59
 msgid "Slams"
 msgstr ""
 
-#: Slams/index.php:12
+#: Slams/index.php:18
 #: Slams/map.php:18
 msgid "List"
 msgstr ""
 
-#: Slams/index.php:14
+#: Slams/index.php:20
 #: Slams/map.php:20
 msgid "Map"
+msgstr ""
+
+#: Slams/suggest.php:20
+msgid "You want to suggest a new slam?"
+msgstr ""
+
+#: Slams/suggest.php:23
+msgid "Your name"
+msgstr ""
+
+#: Slams/suggest.php:24
+msgid "Your email"
+msgstr ""
+
+#: Slams/suggest.php:25
+msgid "Slam name"
+msgstr ""
+
+#: Slams/suggest.php:26
+msgid "Slam city"
+msgstr ""
+
+#: Slams/suggest.php:27
+msgid "Slam information"
 msgstr ""
 
 #: Slams/view.php:12
@@ -563,7 +588,7 @@ msgid "New Tag"
 msgstr ""
 
 #: Tags/index.php:9
-#: layout/default.php:57
+#: layout/default.php:61
 msgid "Tags"
 msgstr ""
 
@@ -616,12 +641,12 @@ msgid "New User"
 msgstr ""
 
 #: Users/index.php:9
-#: layout/default.php:54
+#: layout/default.php:58
 msgid "Users"
 msgstr ""
 
 #: Users/login.php:10
-#: layout/default.php:50
+#: layout/default.php:54
 msgid "Login"
 msgstr ""
 
@@ -682,15 +707,15 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: layout/default.php:46
+#: layout/default.php:50
 msgid "Logged in as: "
 msgstr ""
 
-#: layout/default.php:48
+#: layout/default.php:52
 msgid "Logout"
 msgstr ""
 
-#: layout/default.php:71
+#: layout/default.php:75
 msgid "Imprint"
 msgstr ""
 

@@ -461,6 +461,30 @@ msgstr "Liste"
 msgid "Map"
 msgstr "Karte"
 
+#: Slams/suggest.php:20
+msgid "You want to suggest a new slam?"
+msgstr "Du möchtest einen neuen Slam vorschlagen?"
+
+#: Slams/suggest.php:23
+msgid "Your name"
+msgstr "Dein Name"
+
+#: Slams/suggest.php:24
+msgid "Your email"
+msgstr "Deine E-Mail"
+
+#: Slams/suggest.php:25
+msgid "Slam name"
+msgstr "Wie heißt der Slam?"
+
+#: Slams/suggest.php:26
+msgid "Slam city"
+msgstr "In welcher Stadt findet er statt?"
+
+#: Slams/suggest.php:27
+msgid "Slam information"
+msgstr "Informationen zum Slam:"
+
 #: Slams/view.php:12
 msgid "Delete Slam"
 msgstr "Slam löschen"

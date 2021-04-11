@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Form\SlamSuggestForm;
+
 /**
  * Slams Controller
  *
@@ -15,7 +17,7 @@ class SlamsController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->allowUnauthenticated(['index', 'view', 'map']);
+        $this->Authentication->allowUnauthenticated(['index', 'view', 'map', 'suggest']);
     }
 
     /**
@@ -122,6 +124,20 @@ class SlamsController extends AppController
         }
 
         $this->set('slam', $slam);
+    }
+
+    public function suggest()
+    {
+        $contact = new SlamSuggestForm();
+        if ($this->request->is('post')) {
+            if ($contact->execute($this->request->getData())) {
+                $this->Flash->success('We will get back to you soon.');
+            } else {
+                $this->Flash->error('There was a problem submitting your form.');
+            }
+        }
+
+        $this->set('contact', $contact);
     }
 
     /**

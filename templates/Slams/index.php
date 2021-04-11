@@ -5,7 +5,13 @@
  */
 ?>
 <div class="slams index content">
-    <?= $this->Html->link(__('New Slam'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?php
+        if ($currentUser && $currentUser->get('admin')) {
+            echo $this->Html->link(__('New Slam'), ['action' => 'add'], ['class' => 'button float-right']);
+        } else {
+            echo $this->Html->link(__('New Slam'), ['action' => 'suggest'], ['class' => 'button float-right']);
+        }
+    ?>
     <h3>
         <?= __('Slams') ?>
         <small>
