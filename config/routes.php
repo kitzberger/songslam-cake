@@ -65,6 +65,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
     #$builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $builder->connect('/', ['controller' => 'Slams', 'action' => 'index']);
     $builder->connect('/map', ['controller' => 'Slams', 'action' => 'map']);
+    $builder->connect('/sitemap.xml', ['controller' => 'Slams', 'action' => 'xml']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.

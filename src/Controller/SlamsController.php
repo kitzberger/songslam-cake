@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Form\SlamSuggestForm;
+use Cake\ORM\Query;
 
 /**
  * Slams Controller
@@ -17,7 +18,7 @@ class SlamsController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->allowUnauthenticated(['index', 'view', 'map', 'suggest']);
+        $this->Authentication->allowUnauthenticated(['index', 'view', 'map', 'suggest', 'xml']);
     }
 
     /**
@@ -104,6 +105,30 @@ class SlamsController extends AppController
         $slams = $this->paginate($this->Slams);
 
         $this->set(compact('slams', 'sword', 'state', 'sleeping'));
+    }
+
+    /**
+     * Xml method
+     *
+     * @return \Cake\Http\Response|null|void Renders view
+     */
+    public function xml()
+    {
+        $this->viewBuilder()->setLayout('sitemap');
+        $this->RequestHandler->respondAs('xml');
+
+        $slams = $this->Slams
+            ->find()
+            ->where([
+                'Slams.sleeping' => false,
+            ])
+            ->contain([
+                'Dates' => function (Query $q) {
+                    return $q->where(['Dates.starttime >' => new \DateTime()]);
+                }
+            ]);
+
+        $this->set(compact('slams'));
     }
 
     /**
