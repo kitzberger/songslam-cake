@@ -218,4 +218,8 @@ table th { vertical-align: top; }
 .paginator { margin-top: 2rem; }
 .paginator .pagination { margin-bottom: 0; }
 
+.map-list > li { list-style: none; }
+.map-list ul { margin: 0; }
+.map-list ul li { margin-bottom: 0; }
+
 footer { margin-top: 2em; margin-bottom: 1em; }

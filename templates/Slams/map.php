@@ -17,10 +17,16 @@
     </h3>
     <div class="row">
         <div class="column column-25">
-            <ul>
+            <ul class="map-list">
             <?php
-                foreach ($slams as $slam) {
-                    echo '<li>' . $slam->title . '</li>';
+                $slamCollection = new Cake\Collection\Collection($slams);
+                $slamCollection = $slamCollection->combine('id', 'title', 'state');
+                foreach ($slamCollection as $state => $stateSlams) {
+                    echo '<li>' . __($state) . '<ul>';
+                    foreach ($stateSlams as $slam) {
+                        echo '<li>' . $slam . '</li>';
+                    }
+                    echo '</ul></li>';
                 }
             ?>
             </ul>
