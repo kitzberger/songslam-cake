@@ -13,6 +13,7 @@
                 <tr>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('admin') ?></th>
+                    <th><?= $this->Paginator->sort('slams') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -23,6 +24,7 @@
                 <tr>
                     <td><?= h($user->email) ?></td>
                     <td><?= h($user->admin) ?></td>
+                    <td><?= count($user->slams) ?></td>
                     <td><?= h($user->created) ?></td>
                     <td><?= h($user->modified) ?></td>
                     <td class="actions">

@@ -41,6 +41,10 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Slams'],
+        ];
+
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
@@ -79,7 +83,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $this->set(compact('user'));
+        $slams = $this->Users->Slams->find('list');
+        $this->set(compact('user', 'slams'));
     }
 
     /**
@@ -92,7 +97,7 @@ class UsersController extends AppController
     public function edit($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => [],
+            'contain' => ['Slams'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -103,7 +108,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $this->set(compact('user'));
+        $slams = $this->Users->Slams->find('list');
+        $this->set(compact('user', 'slams'));
     }
 
     /**

@@ -14,10 +14,11 @@ use SoftDelete\Model\Table\SoftDeleteTrait;
 /**
  * Slams Model
  *
- * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
+ * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $User
  * @property \App\Model\Table\DatesTable&\Cake\ORM\Association\HasMany $Dates
  * @property \App\Model\Table\TagsTable&\Cake\ORM\Association\BelongsToMany $Tags
  * @property \App\Model\Table\FilesTable&\Cake\ORM\Association\BelongsToMany $Files
+ * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsToMany $Users
  *
  * @method \App\Model\Entity\Slam newEmptyEntity()
  * @method \App\Model\Entity\Slam newEntity(array $data, array $options = [])
@@ -85,6 +86,11 @@ class SlamsTable extends Table
             'foreignKey' => 'slam_id',
             'targetForeignKey' => 'tag_id',
             'joinTable' => 'slams_tags',
+        ]);
+        $this->belongsToMany('Users', [
+            'foreignKey' => 'slam_id',
+            'targetForeignKey' => 'user_id',
+            'joinTable' => 'slams_users',
         ]);
         $this->belongsToMany('Files', [
             'foreignKey' => 'slam_id',

@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\Query;
+
 /**
  * Dates Controller
  *
@@ -13,7 +15,7 @@ namespace App\Controller;
 class DatesController extends AppController
 {
     protected $allowedActionsForAnybody      = ['index', 'view'];
-    protected $allowedActionsForRegularUsers = ['index', 'view', 'add'];
+    protected $allowedActionsForRegularUsers = ['index', 'view', 'add', 'edit', 'delete'];
 
     /**
      * Index method
@@ -101,9 +103,17 @@ class DatesController extends AppController
             }
             $this->Flash->error(__('The date could not be saved. Please, try again.'));
         }
-        $users = $this->Dates->Users->find('list', ['limit' => 200]);
-        $slams = $this->Dates->Slams->find('list', ['limit' => 200, 'order' => ['Slams.title ASC']]);
-        $this->set(compact('date', 'users', 'slams'));
+
+        $slams = $this->Dates->Slams->find('list');
+
+        if ($this->user->admin === false) {
+            $user_id = $this->user->id;
+            $slams->matching('Users', function (Query $q) use ($user_id) {
+                return $q->where(['Users.id' => $user_id]);
+            });
+        }
+
+        $this->set(compact('date', 'slams'));
     }
 
     /**
@@ -115,9 +125,18 @@ class DatesController extends AppController
      */
     public function edit($id = null)
     {
-        $date = $this->Dates->get($id, [
-            'contain' => [],
-        ]);
+        $query = $this->Dates->find('all')
+            ->where(['Dates.id' => $id]);
+
+        if ($this->user->admin === false) {
+            $user_id = $this->user->id;
+            $query->matching('Slams.Users', function ($q) use ($user_id) {
+                return $q->where(['SlamsUsers.user_id' => $user_id]);
+            });
+        };
+
+        $date = $query->firstOrFail();
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $date = $this->Dates->patchEntity($date, $this->request->getData());
             if ($this->Dates->save($date)) {
@@ -127,9 +146,17 @@ class DatesController extends AppController
             }
             $this->Flash->error(__('The date could not be saved. Please, try again.'));
         }
-        $users = $this->Dates->Users->find('list', ['limit' => 200]);
-        $slams = $this->Dates->Slams->find('list', ['limit' => 200]);
-        $this->set(compact('date', 'users', 'slams'));
+
+        $slams = $this->Dates->Slams->find('list');
+
+        if ($this->user->admin === false) {
+            $user_id = $this->user->id;
+            $slams->matching('Users', function (Query $q) use ($user_id) {
+                return $q->where(['Users.id' => $user_id]);
+            });
+        }
+
+        $this->set(compact('date', 'slams'));
     }
 
     /**
@@ -141,6 +168,18 @@ class DatesController extends AppController
      */
     public function delete($id = null)
     {
+        $query = $this->Dates->find('all')
+            ->where(['Dates.id' => $id]);
+
+        if ($this->user->admin === false) {
+            $user_id = $this->user->id;
+            $query->matching('Slams.Users', function ($q) use ($user_id) {
+                return $q->where(['SlamsUsers.user_id' => $user_id]);
+            });
+        };
+
+        $date = $query->firstOrFail();
+
         $this->request->allowMethod(['post', 'delete']);
         $date = $this->Dates->get($id);
         if ($this->Dates->delete($date)) {

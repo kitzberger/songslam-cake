@@ -20,6 +20,7 @@
                     echo $this->Form->control('email', ['autocomplete' => 'off', 'data-lpignore' => 'true']);
                     echo $this->Form->control('password', ['autocomplete' => 'off', 'data-lpignore' => 'true']);
                     echo $this->Form->control('admin');
+                    echo $this->Form->control('slams._ids', ['options' => $slams, 'style' => 'height:200px']);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

@@ -33,6 +33,8 @@ class AppController extends Controller
     protected $allowedActionsForAnybody      = [];
     protected $allowedActionsForRegularUsers = [];
 
+    protected $user;
+
     /**
      * Initialization hook method.
      *
@@ -64,7 +66,7 @@ class AppController extends Controller
         parent::beforeFilter($event);
         $this->Authentication->allowUnauthenticated($this->allowedActionsForAnybody);
 
-        $user = $this->Authentication->getIdentity();
+        $this->user = $this->Authentication->getIdentity();
         $action = $this->getRequest()->getParam('action');
 
         if (in_array($action, $this->allowedActionsForAnybody)) {
@@ -72,14 +74,14 @@ class AppController extends Controller
             return;
         }
 
-        if (empty($user)) {
+        if (empty($this->user)) {
             $this->Flash->error('Please log in!');
             $this->redirect(['controller' => 'Users', 'action' => 'login']);
             return;
         }
 
         // you're admin? -> fine.
-        if ($user->admin) {
+        if ($this->user->admin) {
             #$this->Flash->success('Allowed because you\'re an admin');
             return;
         }

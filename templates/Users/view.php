@@ -41,28 +41,16 @@
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('User Id') ?></th>
                             <th><?= __('Slam Id') ?></th>
                             <th><?= __('Title') ?></th>
-                            <th><?= __('Slug') ?></th>
                             <th><?= __('Starttime') ?></th>
-                            <th><?= __('Endtime') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($user->dates as $dates) : ?>
                         <tr>
-                            <td><?= h($dates->id) ?></td>
-                            <td><?= h($dates->user_id) ?></td>
                             <td><?= h($dates->slam_id) ?></td>
                             <td><?= h($dates->title) ?></td>
-                            <td><?= h($dates->slug) ?></td>
                             <td><?= h($dates->starttime) ?></td>
-                            <td><?= h($dates->endtime) ?></td>
-                            <td><?= h($dates->created) ?></td>
-                            <td><?= h($dates->modified) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Dates', 'action' => 'view', $dates->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Dates', 'action' => 'edit', $dates->id]) ?>
@@ -80,36 +68,16 @@
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('User Id') ?></th>
-                            <th><?= __('Title') ?></th>
-                            <th><?= __('Slug') ?></th>
-                            <th><?= __('Description') ?></th>
-                            <th><?= __('Venue') ?></th>
-                            <th><?= __('Address') ?></th>
                             <th><?= __('City') ?></th>
-                            <th><?= __('Zip') ?></th>
-                            <th><?= __('Contact') ?></th>
-                            <th><?= __('Www') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
+                            <th><?= __('Title') ?></th>
+                            <th><?= __('Venue') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($user->slams as $slams) : ?>
                         <tr>
-                            <td><?= h($slams->id) ?></td>
-                            <td><?= h($slams->user_id) ?></td>
-                            <td><?= h($slams->title) ?></td>
-                            <td><?= h($slams->slug) ?></td>
-                            <td><?= h($slams->description) ?></td>
-                            <td><?= h($slams->venue) ?></td>
-                            <td><?= h($slams->address) ?></td>
                             <td><?= h($slams->city) ?></td>
-                            <td><?= h($slams->zip) ?></td>
-                            <td><?= h($slams->contact) ?></td>
-                            <td><?= h($slams->www) ?></td>
-                            <td><?= h($slams->created) ?></td>
-                            <td><?= h($slams->modified) ?></td>
+                            <td><?= h($slams->title) ?></td>
+                            <td><?= h($slams->venue) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Slams', 'action' => 'view', $slams->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Slams', 'action' => 'edit', $slams->id]) ?>

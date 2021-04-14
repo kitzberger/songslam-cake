@@ -29,6 +29,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Date[] $dates
  * @property \App\Model\Entity\Tag[] $tags
+ * @property \App\Model\Entity\User[] $users
  * @property \App\Model\Entity\File[] $files
  */
 class Slam extends Entity
@@ -62,6 +63,7 @@ class Slam extends Entity
         'user' => true,
         'dates' => true,
         'tags' => true,
+        'users' => true,
         'files' => true,
     ];
 }
