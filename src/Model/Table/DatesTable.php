@@ -3,13 +3,14 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use ArrayObject;
+use Cake\Event\EventInterface;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
-use Cake\Validation\Validator;
 use Cake\Utility\Text;
-use Cake\Event\EventInterface;
-use ArrayObject;
+use Cake\Validation\Validator;
+use SoftDelete\Model\Table\SoftDeleteTrait;
 
 /**
  * Dates Model
@@ -36,6 +37,8 @@ use ArrayObject;
  */
 class DatesTable extends Table
 {
+    use SoftDeleteTrait;
+
     /**
      * Initialize method
      *

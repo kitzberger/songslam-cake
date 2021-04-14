@@ -20,7 +20,8 @@
         "cakephp/plugin-installer": "^1.2",
         "josegonzalez/dotenv": "^3.2",
         "maxh/php-nominatim": "^2.2",
-        "mobiledetect/mobiledetectlib": "^2.8"
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "salines/cakephp4-soft-delete": "^1.0"
     },
     "require-dev": {
         "cakephp/bake": "^2.0.3",

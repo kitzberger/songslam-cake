@@ -3,12 +3,13 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Event\EventInterface;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
-use Cake\Validation\Validator;
 use Cake\Utility\Text;
-use Cake\Event\EventInterface;
+use Cake\Validation\Validator;
+use SoftDelete\Model\Table\SoftDeleteTrait;
 
 /**
  * Slams Model
@@ -36,6 +37,8 @@ use Cake\Event\EventInterface;
  */
 class SlamsTable extends Table
 {
+    use SoftDeleteTrait;
+
     const STATES = [
         'BW' => 'Baden-Württemberg',
         'BY' => 'Bayern',
