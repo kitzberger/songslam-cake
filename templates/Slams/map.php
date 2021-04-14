@@ -24,9 +24,9 @@
                 foreach ($slamCollection as $state => $stateSlams) {
                     $stateSlams = new \Cake\Collection\Collection($stateSlams);
                     $stateSlams = $stateSlams->combine('id', 'title', 'city');
-                    echo '<li>' . __($state) . '<ul>';
+                    echo '<li>' . $this->Html->link(__($state), ['action' => 'index', '?' => ['state' => $state]]) . '<ul>';
                     foreach ($stateSlams as $city => $citySlams) {
-                        echo '<li>' . $city . ' (' . count($citySlams) . ')</li>';
+                        echo '<li>' . $this->Html->link($city, ['action' => 'index', '?' => ['sword' => $city]]) . ' (' . count($citySlams) . ')</li>';
                     }
                     echo '</ul></li>';
                 }
