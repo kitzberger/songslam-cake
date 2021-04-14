@@ -12,6 +12,9 @@ namespace App\Controller;
  */
 class SlamsTagsController extends AppController
 {
+    protected $allowedActionsForAnybody      = [];
+    protected $allowedActionsForRegularUsers = ['index', 'view'];
+
     /**
      * Index method
      *

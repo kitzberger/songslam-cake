@@ -66,9 +66,13 @@
     <nav class="top-nav top-nav-2nd-row">
         <div class="top-nav-links"></div>
         <div class="top-nav-links">
-            <?= $currentUser ? $this->Html->link(__('Users'), ['controller' => 'Users', 'action' => 'index'], ['class' => $controller==='Users'?'active':'']) : '' ?>
-            <?= $currentUser ? $this->Html->link(__('Tags'),  ['controller' => 'Tags',  'action' => 'index'], ['class' => $controller==='Tags'?'active':'']) : '' ?>
-            <?= $currentUser ? $this->Html->link(__('Files'),  ['controller' => 'Files',  'action' => 'index'], ['class' => $controller==='Files'?'active':'']) : '' ?>
+            <?php
+                if ($currentUser && $currentUser->admin) {
+                    echo $this->Html->link(__('Users'), ['controller' => 'Users', 'action' => 'index'], ['class' => $controller==='Users'?'active':'']);
+                    echo $this->Html->link(__('Tags'),  ['controller' => 'Tags',  'action' => 'index'], ['class' => $controller==='Tags'?'active':'']);
+                    echo $this->Html->link(__('Files'),  ['controller' => 'Files',  'action' => 'index'], ['class' => $controller==='Files'?'active':'']);
+                }
+            ?>
         </div>
     </nav>
     <main class="main">

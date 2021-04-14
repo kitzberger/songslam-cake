@@ -12,11 +12,8 @@ namespace App\Controller;
  */
 class UsersController extends AppController
 {
-    public function beforeFilter(\Cake\Event\EventInterface $event)
-    {
-        parent::beforeFilter($event);
-        $this->Authentication->allowUnauthenticated(['login']);
-    }
+    protected $allowedActionsForAnybody      = ['login'];
+    protected $allowedActionsForRegularUsers = ['login', 'logout'];
 
     public function login()
     {

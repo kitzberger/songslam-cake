@@ -12,6 +12,9 @@ namespace App\Controller;
  */
 class TagsController extends AppController
 {
+    protected $allowedActionsForAnybody      = [];
+    protected $allowedActionsForRegularUsers = ['index'];
+
     /**
      * Index method
      *

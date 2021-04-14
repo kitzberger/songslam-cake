@@ -12,11 +12,8 @@ namespace App\Controller;
  */
 class DatesController extends AppController
 {
-    public function beforeFilter(\Cake\Event\EventInterface $event)
-    {
-        parent::beforeFilter($event);
-        $this->Authentication->allowUnauthenticated(['index', 'view']);
-    }
+    protected $allowedActionsForAnybody      = ['index', 'view'];
+    protected $allowedActionsForRegularUsers = ['index', 'view', 'add'];
 
     /**
      * Index method

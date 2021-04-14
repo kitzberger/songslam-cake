@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\EventInterface;
+use Cake\Http\Exception\ForbiddenException;
 
 /**
  * Application Controller
@@ -28,6 +30,9 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
+    protected $allowedActionsForAnybody      = [];
+    protected $allowedActionsForRegularUsers = [];
+
     /**
      * Initialization hook method.
      *
@@ -52,6 +57,46 @@ class AppController extends Controller
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
+    }
+
+    public function beforeFilter(EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        $this->Authentication->allowUnauthenticated($this->allowedActionsForAnybody);
+
+        $user = $this->Authentication->getIdentity();
+        $action = $this->getRequest()->getParam('action');
+
+        if (in_array($action, $this->allowedActionsForAnybody)) {
+            #$this->Flash->success('Allowed because this action is for anybody');
+            return;
+        }
+
+        if (empty($user)) {
+            $this->Flash->error('Please log in!');
+            $this->redirect(['controller' => 'Users', 'action' => 'login']);
+            return;
+        }
+
+        // you're admin? -> fine.
+        if ($user->admin) {
+            #$this->Flash->success('Allowed because you\'re an admin');
+            return;
+        }
+
+        if ($this->allowedActionsForRegularUsers === ['*']) {
+            #$this->Flash->success('Allowed because all actions are for logged in users');
+            return;
+        }
+
+        // you wanna access an actions for regular users? -> fine.
+        if (in_array($action, $this->allowedActionsForRegularUsers)) {
+            #$this->Flash->success('Allowed because this action is for logged in users');
+            return;
+        }
+
+        // you're not admin and wanna access other actions? -> nope.
+        throw new ForbiddenException('Not authorized!');
     }
 
     /**

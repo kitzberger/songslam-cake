@@ -15,11 +15,8 @@ use Cake\ORM\Query;
  */
 class SlamsController extends AppController
 {
-    public function beforeFilter(\Cake\Event\EventInterface $event)
-    {
-        parent::beforeFilter($event);
-        $this->Authentication->allowUnauthenticated(['index', 'view', 'map', 'suggest', 'xml']);
-    }
+    protected $allowedActionsForAnybody      = ['index', 'view', 'map', 'suggest', 'xml'];
+    protected $allowedActionsForRegularUsers = ['index', 'view', 'map', 'suggest', 'xml'];
 
     /**
      * Index method

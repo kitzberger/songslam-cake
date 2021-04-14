@@ -12,11 +12,8 @@ namespace App\Controller;
  */
 class FilesController extends AppController
 {
-    public function beforeFilter(\Cake\Event\EventInterface $event)
-    {
-        parent::beforeFilter($event);
-        $this->Authentication->allowUnauthenticated(['index', 'view']);
-    }
+    protected $allowedActionsForAnybody      = [];
+    protected $allowedActionsForRegularUsers = ['index', 'view'];
 
     /**
      * Index method
