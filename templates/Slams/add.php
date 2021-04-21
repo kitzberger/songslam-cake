@@ -24,6 +24,7 @@
                 <legend><?= __('Add Slam') ?></legend>
                 <?php
                     echo $this->Form->hidden('user_id', ['value' => $currentUser->getIdentifier()]);
+                    echo $this->Form->hidden('users._ids[]', ['value' => $currentUser->getIdentifier()]);
                     echo $this->Form->control('title');
                     echo $this->Form->control('venue');
                     echo $this->Ck->input('description', ['label' => __('Description')], ['removePlugins' => 'image']);

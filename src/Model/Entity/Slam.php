@@ -66,4 +66,9 @@ class Slam extends Entity
         'users' => true,
         'files' => true,
     ];
+
+    public function ownedBy($user)
+    {
+        return (in_array($user->id, array_column($this->users ?? [], 'id')));
+    }
 }

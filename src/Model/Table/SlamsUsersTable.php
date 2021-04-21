@@ -7,6 +7,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use SoftDelete\Model\Table\SoftDeleteTrait;
 
 /**
  * SlamsUsers Model
@@ -30,6 +31,8 @@ use Cake\Validation\Validator;
  */
 class SlamsUsersTable extends Table
 {
+    use SoftDeleteTrait;
+
     /**
      * Initialize method
      *

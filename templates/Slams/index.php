@@ -6,7 +6,7 @@
 ?>
 <div class="slams index content">
     <?php
-        if ($currentUser && $currentUser->get('admin')) {
+        if ($currentUser) {
             echo $this->Html->link(__('New Slam'), ['action' => 'add'], ['class' => 'button float-right']);
         } else {
             echo $this->Html->link(__('New Slam'), ['action' => 'suggest'], ['class' => 'button float-right']);
@@ -42,7 +42,7 @@
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $slam->slug]) ?>
                             <?php
-                                if ($currentUser->get('admin')) {
+                                if ($currentUser->get('admin') || $slam->ownedBy($currentUser)) {
                                     echo $this->Html->link(__('Edit'), ['action' => 'edit', $slam->id]);
                                     echo $this->Form->postLink(__('Delete'), ['action' => 'delete', $slam->id], ['confirm' => __('Are you sure you want to delete # {0}?', $slam->id)]);
                                 }

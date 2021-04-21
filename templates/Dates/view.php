@@ -8,10 +8,17 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Date'), ['action' => 'edit', $date->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Date'), ['action' => 'delete', $date->id], ['confirm' => __('Are you sure you want to delete # {0}?', $date->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Dates'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Date'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <?php
+                if ($currentUser) {
+                    if ($currentUser->get('admin') || $date->slam->ownedBy($currentUser)) {
+                        echo $this->Html->link(__('Edit Date'), ['action' => 'edit', $date->id], ['class' => 'side-nav-item']);
+                        echo $this->Form->postLink(__('Delete Date'), ['action' => 'delete', $date->id], ['confirm' => __('Are you sure you want to delete # {0}?', $date->id), 'class' => 'side-nav-item']);
+                        echo $this->Html->link(__('New Date'), ['action' => 'add', '?' => ['slam_id' => $date->slam_id]], ['class' => 'side-nav-item']);
+                    }
+
+                    echo $this->Html->link(__('List Dates'), ['action' => 'index'], ['class' => 'side-nav-item']);
+                }
+            ?>
         </div>
     </aside>
     <div class="column-responsive column-80">

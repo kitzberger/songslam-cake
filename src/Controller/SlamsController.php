@@ -16,7 +16,7 @@ use Cake\ORM\Query;
 class SlamsController extends AppController
 {
     protected $allowedActionsForAnybody      = ['index', 'view', 'map', 'suggest', 'xml'];
-    protected $allowedActionsForRegularUsers = ['index', 'view', 'map', 'suggest', 'xml'];
+    protected $allowedActionsForRegularUsers = ['index', 'view', 'map', 'add', 'edit', 'delete', 'xml'];
 
     /**
      * Index method
@@ -197,9 +197,18 @@ class SlamsController extends AppController
      */
     public function edit($id = null)
     {
-        $slam = $this->Slams->get($id, [
-            'contain' => ['Tags'],
-        ]);
+        $query = $this->Slams->find('all', ['contain' => 'Tags'])
+            ->where(['Slams.id' => $id]);
+
+        if ($this->user->admin === false) {
+            $user_id = $this->user->id;
+            $query->matching('Users', function ($q) use ($user_id) {
+                return $q->where(['SlamsUsers.user_id' => $user_id]);
+            });
+        };
+
+        $slam = $query->firstOrFail();
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $slam = $this->Slams->patchEntity($slam, $this->request->getData());
             if ($this->Slams->save($slam)) {
@@ -223,8 +232,19 @@ class SlamsController extends AppController
      */
     public function delete($id = null)
     {
+        $query = $this->Slams->find('all', ['contain' => 'Tags'])
+            ->where(['Slams.id' => $id]);
+
+        if ($this->user->admin === false) {
+            $user_id = $this->user->id;
+            $query->matching('Users', function ($q) use ($user_id) {
+                return $q->where(['SlamsUsers.user_id' => $user_id]);
+            });
+        };
+
+        $slam = $query->firstOrFail();
+
         $this->request->allowMethod(['post', 'delete']);
-        $slam = $this->Slams->get($id);
         if ($this->Slams->delete($slam)) {
             $this->Flash->success(__('The slam has been deleted.'));
         } else {

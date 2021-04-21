@@ -51,7 +51,7 @@ class DatesController extends AppController
 
         $this->paginate = [
             'sortWhitelist' => ['Dates.starttime', 'Slams.city', 'Slams.venue'],
-            'contain' => ['Users', 'Slams'],
+            'contain' => ['Users', 'Slams', 'Slams.Users'],
             'order' => ['Dates.starttime' => 'ASC'],
             'conditions' => $conditions,
         ];
@@ -70,7 +70,7 @@ class DatesController extends AppController
      */
     public function view($slug = null)
     {
-        $relations = ['Users', 'Slams', 'Files'];
+        $relations = ['Users', 'Slams', 'Slams.Users', 'Files'];
 
         if (is_numeric($slug)) {
             $date = $this->Dates->get($slug)->contain($relations);

@@ -32,7 +32,7 @@
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $date->slug]) ?>
                         <?php
-                            if ($currentUser && $currentUser->get('admin')) {
+                            if ($currentUser->get('admin') || $date->slam->ownedBy($currentUser)) {
                                 echo $this->Html->link(__('Edit'), ['action' => 'edit', $date->id]);
                                 echo $this->Form->postLink(__('Delete'), ['action' => 'delete', $date->id], ['confirm' => __('Are you sure you want to delete # {0}?', $date->id)]);
                             }

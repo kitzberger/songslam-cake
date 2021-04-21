@@ -8,10 +8,17 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Slam'), ['action' => 'edit', $slam->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Slam'), ['action' => 'delete', $slam->id], ['confirm' => __('Are you sure you want to delete # {0}?', $slam->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Slams'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Slam'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <?php
+                if ($currentUser) {
+                    if ($currentUser->get('admin') || $slam->ownedBy($currentUser)) {
+                        echo $this->Html->link(__('Edit Slam'), ['action' => 'edit', $slam->id], ['class' => 'side-nav-item']);
+                        echo $this->Form->postLink(__('Delete Slam'), ['action' => 'delete', $slam->id], ['confirm' => __('Are you sure you want to delete # {0}?', $slam->id), 'class' => 'side-nav-item']);
+                    }
+
+                    echo $this->Html->link(__('New Slam'), ['action' => 'add'], ['class' => 'side-nav-item']);
+                    echo $this->Html->link(__('List Slams'), ['action' => 'index'], ['class' => 'side-nav-item']);
+                }
+            ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
