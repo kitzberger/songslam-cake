@@ -32,7 +32,7 @@
                     echo $this->Form->control('zip');
                     echo $this->Form->control('contact');
                     echo $this->Form->control('www');
-                    echo $this->Form->control('state', ['options' => [null => ''] + \App\Model\Table\SlamsTable::STATES]);
+                    echo $this->Form->control('state', ['options' => [null => ''] + \App\Model\Table\SlamsTable::getStates()]);
                     echo $this->Form->control('longitude', ['readonly' => true, 'disabled' => true]);
                     echo $this->Form->control('latitude',  ['readonly' => true, 'disabled' => true]);
                     echo $this->Form->control('sleeping');

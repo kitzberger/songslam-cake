@@ -22,7 +22,7 @@
             if (isset($state)):
         ?>
         <div class="column column-25">
-            <?= $this->Form->control('state', ['label' => __('State'), 'options' => [null => ''] + \App\Model\Table\SlamsTable::STATES, 'value' => $state]) ?>
+            <?= $this->Form->control('state', ['label' => __('State'), 'options' => [null => ''] + \App\Model\Table\SlamsTable::getStates(), 'value' => $state]) ?>
         </div>
         <?php
             endif;

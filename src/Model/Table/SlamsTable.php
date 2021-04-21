@@ -41,22 +41,30 @@ class SlamsTable extends Table
     use SoftDeleteTrait;
 
     const STATES = [
-        'BW' => 'Baden-Württemberg',
-        'BY' => 'Bayern',
-        'BE' => 'Berlin',
-        'BB' => 'Brandenburg',
-        'HB' => 'Bremen',
-        'HH' => 'Hamburg',
-        'HE' => 'Hessen',
-        'NI' => 'Niedersachsen',
-        'MV' => 'Mecklenburg-Vorpommern',
-        'NW' => 'Nordrhein-Westfalen',
-        'RP' => 'Rheinland-Pfalz',
-        'SL' => 'Saarland',
-        'SN' => 'Sachsen',
-        'ST' => 'Sachsen-Anhalt',
-        'SH' => 'Schleswig-Holstein',
-        'TH' => 'Thüringen',
+        'DE' => [
+            'DE_BW',
+            'DE_BY',
+            'DE_BE',
+            'DE_BB',
+            'DE_HB',
+            'DE_HH',
+            'DE_HE',
+            'DE_NI',
+            'DE_MV',
+            'DE_NW',
+            'DE_RP',
+            'DE_SL',
+            'DE_SN',
+            'DE_ST',
+            'DE_SH',
+            'DE_TH',
+        ],
+        'CH' => [
+            'CH',
+        ],
+        'AT' => [
+            'AT',
+        ],
     ];
 
     /**
@@ -164,7 +172,7 @@ class SlamsTable extends Table
 
         $validator
             ->scalar('state')
-            ->maxLength('state', 2)
+            ->maxLength('state', 5)
             ->requirePresence('state', 'create')
             ->notEmptyString('state');
 
@@ -225,5 +233,21 @@ class SlamsTable extends Table
                 #debug($search); debug($result); die();
             }
         }
+    }
+
+    public static function getStates()
+    {
+        $states = self::STATES;
+
+        $translatedStates = [];
+
+        foreach ($states as $country => $countryStates) {
+            $translatedStates[__($country)] = [];
+            foreach ($countryStates as $countryState) {
+                $translatedStates[__($country)][$countryState] = __($countryState);
+            }
+        }
+
+        return $translatedStates;
     }
 }

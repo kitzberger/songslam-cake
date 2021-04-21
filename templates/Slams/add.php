@@ -31,7 +31,7 @@
                     echo $this->Form->control('address');
                     echo $this->Form->control('zip');
                     echo $this->Form->control('city');
-                    echo $this->Form->control('state', ['options' => [null => ''] + \App\Model\Table\SlamsTable::STATES]);
+                    echo $this->Form->control('state', ['options' => [null => ''] + \App\Model\Table\SlamsTable::getStates()]);
                     echo $this->Form->control('contact');
                     echo $this->Form->control('www');
                     echo $this->Form->control('sleeping');
