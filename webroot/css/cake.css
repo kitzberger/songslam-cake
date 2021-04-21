@@ -118,6 +118,11 @@ th {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
+.input.required > label:after {
+    content: '*';
+    margin-left: 2px;
+    color: #c10303;
+}
 
 .input.radio,
 .input.checkbox {
@@ -139,6 +144,10 @@ th {
 }
 .input.radio label:first-of-type {
     margin-bottom: 2.0rem;
+}
+
+.input.select select[multiple] {
+    height: auto;
 }
 
 /* Paginator */
