@@ -82,8 +82,20 @@ class FilesController extends AppController
             }
         }
 
-        $dates = $this->Files->Dates->find('list', ['limit' => 200]);
-        $slams = $this->Files->Slams->find('list', ['limit' => 200]);
+        $dates = $this->Files->Dates->find('list', [
+            'contain' => ['Slams'],
+            'order' => ['Slams.city'],
+            'valueField' => function ($date) {
+                return $date->slam->city . ' (' . $date->slam->venue . '): ' . $date->slam->title . ' - ' . ($date->starttime ? $date->starttime->format('Y-m-d') : $date->id);
+            }
+        ]);
+
+        $slams = $this->Files->Slams->find('list', [
+            'order' => ['Slams.city'],
+            'valueField' => function ($slam) {
+                return $slam->city . ' (' . $slam->venue . '): ' . $slam->title;
+            }
+        ]);
 
         $this->set(compact('file', 'users', 'dates', 'slams'));
     }
@@ -109,9 +121,24 @@ class FilesController extends AppController
             }
             $this->Flash->error(__('The file could not be saved. Please, try again.'));
         }
+
         $users = $this->Files->Users->find('list', ['limit' => 200]);
-        $dates = $this->Files->Dates->find('list', ['limit' => 200]);
-        $slams = $this->Files->Slams->find('list', ['limit' => 200]);
+
+        $dates = $this->Files->Dates->find('list', [
+            'contain' => ['Slams'],
+            'order' => ['Slams.city'],
+            'valueField' => function ($date) {
+                return $date->slam->city . ' (' . $date->slam->venue . '): ' . $date->slam->title . ' - ' . ($date->starttime ? $date->starttime->format('Y-m-d') : $date->id);
+            }
+        ]);
+
+        $slams = $this->Files->Slams->find('list', [
+            'order' => ['Slams.city'],
+            'valueField' => function ($slam) {
+                return $slam->city . ' (' . $slam->venue . '): ' . $slam->title;
+            }
+        ]);
+
         $this->set(compact('file', 'users', 'dates', 'slams'));
     }
 

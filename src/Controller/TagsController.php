@@ -51,6 +51,7 @@ class TagsController extends AppController
     public function add()
     {
         $tag = $this->Tags->newEmptyEntity();
+
         if ($this->request->is('post')) {
             $tag = $this->Tags->patchEntity($tag, $this->request->getData());
             if ($this->Tags->save($tag)) {
@@ -60,7 +61,14 @@ class TagsController extends AppController
             }
             $this->Flash->error(__('The tag could not be saved. Please, try again.'));
         }
-        $slams = $this->Tags->Slams->find('list', ['limit' => 200]);
+
+        $slams = $this->Tags->Slams->find('list', [
+            'order' => ['Slams.city'],
+            'valueField' => function ($slam) {
+                return $slam->city . ' (' . $slam->venue . '): ' . $slam->title;
+            }
+        ]);
+
         $this->set(compact('tag', 'slams'));
     }
 
@@ -76,6 +84,7 @@ class TagsController extends AppController
         $tag = $this->Tags->get($id, [
             'contain' => ['Slams'],
         ]);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $tag = $this->Tags->patchEntity($tag, $this->request->getData());
             if ($this->Tags->save($tag)) {
@@ -85,7 +94,14 @@ class TagsController extends AppController
             }
             $this->Flash->error(__('The tag could not be saved. Please, try again.'));
         }
-        $slams = $this->Tags->Slams->find('list', ['limit' => 200]);
+
+        $slams = $this->Tags->Slams->find('list', [
+            'order' => ['Slams.city'],
+            'valueField' => function ($slam) {
+                return $slam->city . ' (' . $slam->venue . '): ' . $slam->title;
+            }
+        ]);
+
         $this->set(compact('tag', 'slams'));
     }
 

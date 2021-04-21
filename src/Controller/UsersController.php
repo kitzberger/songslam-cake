@@ -74,6 +74,7 @@ class UsersController extends AppController
     public function add()
     {
         $user = $this->Users->newEmptyEntity();
+
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
@@ -83,7 +84,14 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $slams = $this->Users->Slams->find('list');
+
+        $slams = $this->Users->Slams->find('list', [
+            'order' => ['Slams.city'],
+            'valueField' => function ($slam) {
+                return $slam->city . ' (' . $slam->venue . '): ' . $slam->title;
+            }
+        ]);
+
         $this->set(compact('user', 'slams'));
     }
 
@@ -99,6 +107,7 @@ class UsersController extends AppController
         $user = $this->Users->get($id, [
             'contain' => ['Slams'],
         ]);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
@@ -108,7 +117,14 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $slams = $this->Users->Slams->find('list');
+
+        $slams = $this->Users->Slams->find('list', [
+            'order' => ['Slams.city'],
+            'valueField' => function ($slam) {
+                return $slam->city . ' (' . $slam->venue . '): ' . $slam->title;
+            }
+        ]);
+
         $this->set(compact('user', 'slams'));
     }
 

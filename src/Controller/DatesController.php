@@ -105,7 +105,12 @@ class DatesController extends AppController
             $this->Flash->error(__('The date could not be saved. Please, try again.'));
         }
 
-        $slams = $this->Dates->Slams->find('list');
+        $slams = $this->Dates->Slams->find('list', [
+            'order' => ['Slams.city'],
+            'valueField' => function ($slam) {
+                return $slam->city . ' (' . $slam->venue . '): ' . $slam->title;
+            }
+        ]);
 
         if ($this->user->admin === false) {
             $user_id = $this->user->id;
@@ -149,7 +154,12 @@ class DatesController extends AppController
             $this->Flash->error(__('The date could not be saved. Please, try again.'));
         }
 
-        $slams = $this->Dates->Slams->find('list');
+        $slams = $this->Dates->Slams->find('list', [
+            'order' => ['Slams.city'],
+            'valueField' => function ($slam) {
+                return $slam->city . ' (' . $slam->venue . '): ' . $slam->title;
+            }
+        ]);
 
         if ($this->user->admin === false) {
             $user_id = $this->user->id;

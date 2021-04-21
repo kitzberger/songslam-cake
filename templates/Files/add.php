@@ -19,8 +19,8 @@
                 <?php
                     echo $this->Form->hidden('user_id', ['value' => $currentUser->getIdentifier()]);
                     echo $this->Form->file('file');
-                    echo $this->Form->control('dates._ids', ['options' => $dates]);
                     echo $this->Form->control('slams._ids', ['options' => $slams]);
+                    echo $this->Form->control('dates._ids', ['options' => $dates]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
