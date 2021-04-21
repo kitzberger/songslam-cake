@@ -173,6 +173,7 @@ class SlamsController extends AppController
         if ($this->request->is('post')) {
             $slam = $this->Slams->patchEntity($slam, $this->request->getData());
             if ($this->Slams->save($slam)) {
+                $this->informAdmin(__('New slam has been added'), $this->request->getData());
                 $this->Flash->success(__('The slam has been saved.'));
 
                 if ($this->request->getData('saveAndAddDates')) {
@@ -212,6 +213,7 @@ class SlamsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $slam = $this->Slams->patchEntity($slam, $this->request->getData());
             if ($this->Slams->save($slam)) {
+                $this->informAdmin(__('Slam has been edited'), $this->request->getData());
                 $this->Flash->success(__('The slam has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -246,6 +248,13 @@ class SlamsController extends AppController
 
         $this->request->allowMethod(['post', 'delete']);
         if ($this->Slams->delete($slam)) {
+            $this->informAdmin(
+                __('Slam has been deleted'),
+                [
+                    'slam' => $slam->title,
+                    'user' => $this->user->email,
+                ]
+            );
             $this->Flash->success(__('The slam has been deleted.'));
         } else {
             $this->Flash->error(__('The slam could not be deleted. Please, try again.'));

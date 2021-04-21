@@ -19,6 +19,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\EventInterface;
 use Cake\Http\Exception\ForbiddenException;
+use Cake\Mailer\Mailer;
 
 /**
  * Application Controller
@@ -116,6 +117,17 @@ class AppController extends Controller
         if (isset($this->Authentication)) {
             $currentUser = $this->Authentication->getIdentity();
             $this->set('currentUser', $currentUser);
+        }
+    }
+
+    public function informAdmin($subject, $data)
+    {
+        if ($this->user->admin === false) {
+            $mailer = new Mailer('default');
+            $mailer->setFrom([env('EMAIL_SENDER_MAIL') => env('EMAIL_SENDER_NAME')])
+                ->setTo(env('EMAIL_RECIPIENT'))
+                ->setSubject($subject)
+                ->deliver(print_r($data, true));
         }
     }
 }

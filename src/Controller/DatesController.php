@@ -93,6 +93,7 @@ class DatesController extends AppController
         if ($this->request->is('post')) {
             $date = $this->Dates->patchEntity($date, $this->request->getData());
             if ($this->Dates->save($date)) {
+                $this->informAdmin(__('New date has been added'), $this->request->getData());
                 $this->Flash->success(__('The date has been saved.'));
 
                 if ($this->request->getData('saveAndNew')) {
@@ -140,6 +141,7 @@ class DatesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $date = $this->Dates->patchEntity($date, $this->request->getData());
             if ($this->Dates->save($date)) {
+                $this->informAdmin(__('Date has been edited'), $this->request->getData());
                 $this->Flash->success(__('The date has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -168,7 +170,7 @@ class DatesController extends AppController
      */
     public function delete($id = null)
     {
-        $query = $this->Dates->find('all')
+        $query = $this->Dates->find('all', ['contain' => 'Slams'])
             ->where(['Dates.id' => $id]);
 
         if ($this->user->admin === false) {
@@ -181,8 +183,15 @@ class DatesController extends AppController
         $date = $query->firstOrFail();
 
         $this->request->allowMethod(['post', 'delete']);
-        $date = $this->Dates->get($id);
         if ($this->Dates->delete($date)) {
+            $this->informAdmin(
+                __('Date has been deleted'),
+                [
+                    'slam' => $date->slam->title,
+                    'date' => $date->starttime ? $date->starttime->format('Y-m-d') : $date->id,
+                    'user' => $this->user->email,
+                ]
+            );
             $this->Flash->success(__('The date has been deleted.'));
         } else {
             $this->Flash->error(__('The date could not be deleted. Please, try again.'));
