@@ -215,12 +215,18 @@ class SlamsTable extends Table
         }
 
         if ($entity->isDirty('city') || $entity->isDirty('zip') || $entity->isDirty('address')) {
+            switch (substr($entity->state, 0, 2)) {
+                case 'AT': $country = 'Austria'; break;
+                case 'CH': $country = 'Switzerland'; break;
+                case 'DE': $country = 'Germany'; break;
+            }
+
             if ($entity->address && $entity->city) {
                 $url = "https://nominatim.openstreetmap.org/";
                 $nominatim = new \maxh\Nominatim\Nominatim($url);
                 $search = $nominatim
                     ->newSearch()
-                    ->country('Germany')
+                    ->country($country)
                     ->city($entity->city)
                     ->postalCode($entity->zip)
                     ->street($entity->address);
