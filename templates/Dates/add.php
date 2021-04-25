@@ -30,10 +30,31 @@
                     echo $this->Form->hidden('user_id', ['value' => $currentUser->getIdentifier()]);
                     echo $this->Form->control('slam_id', ['options' => $slams, 'empty' => true]);
                     echo $this->Form->hidden('starttime', ['id' => 'starttime']);
-                    echo $this->Form->control('date', ['empty' => true, 'type' => 'date']);
-                    echo $this->Form->control('time', ['empty' => true, 'step' => 60, 'value' => '20:00', 'type' => 'time']);
-                    echo $this->Form->control('title', ['label' => __('Title (optional)')]);
                 ?>
+                <div class="row">
+                    <div class="column"><?= $this->Form->control('date', ['empty' => true, 'type' => 'date']); ?></div>
+                    <div class="column"><?= $this->Form->control('time', ['empty' => true, 'step' => 60, 'value' => '20:00', 'type' => 'time']); ?></div>
+                </div>
+                <?= $this->Form->control('moderator'); ?>
+            </fieldset>
+            <fieldset>
+                <legend><?= __('Override fields') ?></legend>
+                <p><?= __('These fields override the ones from the selected slam.'); ?></p>
+                <div class="row">
+                    <div class="column"><?= $this->Form->control('title', ['label' => __('Title (optional)')]); ?></div>
+                    <div class="column"><?= $this->Form->control('contact'); ?></div>
+                </div>
+                <?= $this->Ck->input('description', ['label' => __('Description')], ['removePlugins' => 'image']); ?>
+                <div class="row">
+                    <div class="column"><?= $this->Form->control('venue'); ?></div>
+                    <div class="column"><?= $this->Form->control('address'); ?></div>
+                </div>
+                <div class="row">
+                    <div class="column"><?= $this->Form->control('zip'); ?></div>
+                    <div class="column"><?= $this->Form->control('city'); ?></div>
+                    <div class="column"><?= $this->Form->control('state', ['options' => [null => ''] + \App\Model\Table\Traits\StateTrait::getStates()]); ?></div>
+                </div>
+                <?= $this->Form->control('www'); ?>
             </fieldset>
             <?= $this->Form->hidden('saveAndNew', ['value' => 0, 'id' => 'saveAndNew']) ?>
             <?= $this->Form->button(__('Submit and back'), ['onclick' => 'return setHiddenFields(0)']) ?>

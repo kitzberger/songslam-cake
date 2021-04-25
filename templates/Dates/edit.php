@@ -21,12 +21,41 @@
             <?= $this->Form->create($date) ?>
             <fieldset>
                 <legend><?= __('Edit Date') ?></legend>
-                <?php
-                    echo $this->Form->control('slam_id', ['options' => $slams]);
-                    echo $this->Form->control('starttime', ['empty' => true]);
-                    echo $this->Form->control('title', ['label' => __('Title (optional)')]);
-                    echo $this->Form->control('slug');
-                ?>
+                <div class="row">
+                    <div class="column">
+                        <?= $this->Form->control('slam_id', ['options' => $slams]); ?>
+                    </div>
+                    <div class="column">
+                        <?= $this->Form->control('starttime', ['empty' => true]); ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <?= $this->Form->control('moderator'); ?>
+                    </div>
+                    <div class="column">
+                        <?= $this->Form->control('slug'); ?>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><?= __('Override fields') ?></legend>
+                <p><?= __('These fields override the ones from the selected slam.'); ?></p>
+                <div class="row">
+                    <div class="column"><?= $this->Form->control('title', ['label' => __('Title (optional)')]); ?></div>
+                    <div class="column"><?= $this->Form->control('contact'); ?></div>
+                </div>
+                <?= $this->Ck->input('description', ['label' => __('Description')], ['removePlugins' => 'image']); ?>
+                <div class="row">
+                    <div class="column"><?= $this->Form->control('venue'); ?></div>
+                    <div class="column"><?= $this->Form->control('address'); ?></div>
+                </div>
+                <div class="row">
+                    <div class="column"><?= $this->Form->control('zip'); ?></div>
+                    <div class="column"><?= $this->Form->control('city'); ?></div>
+                    <div class="column"><?= $this->Form->control('state', ['options' => [null => ''] + \App\Model\Table\Traits\StateTrait::getStates()]); ?></div>
+                </div>
+                <?= $this->Form->control('www'); ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>

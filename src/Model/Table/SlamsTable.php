@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use App\Model\Table\Traits\GeolocationTrait;
+use App\Model\Table\Traits\StateTrait;
 use Cake\Event\EventInterface;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
@@ -39,33 +41,8 @@ use SoftDelete\Model\Table\SoftDeleteTrait;
 class SlamsTable extends Table
 {
     use SoftDeleteTrait;
-
-    const STATES = [
-        'DE' => [
-            'DE_BW',
-            'DE_BY',
-            'DE_BE',
-            'DE_BB',
-            'DE_HB',
-            'DE_HH',
-            'DE_HE',
-            'DE_NI',
-            'DE_MV',
-            'DE_NW',
-            'DE_RP',
-            'DE_SL',
-            'DE_SN',
-            'DE_ST',
-            'DE_SH',
-            'DE_TH',
-        ],
-        'CH' => [
-            'CH',
-        ],
-        'AT' => [
-            'AT',
-        ],
-    ];
+    use StateTrait;
+    use GeolocationTrait { beforeSave as geolocationTraitBeforeSave; }
 
     /**
      * Initialize method
@@ -214,46 +191,6 @@ class SlamsTable extends Table
             $entity->slug = strtolower(substr($sluggedTitle, 0, 191));
         }
 
-        if ($entity->isDirty('city') || $entity->isDirty('zip') || $entity->isDirty('address')) {
-            switch (substr($entity->state, 0, 2)) {
-                case 'AT': $country = 'Austria'; break;
-                case 'CH': $country = 'Switzerland'; break;
-                case 'DE': $country = 'Germany'; break;
-            }
-
-            if ($entity->address && $entity->city) {
-                $url = "https://nominatim.openstreetmap.org/";
-                $nominatim = new \maxh\Nominatim\Nominatim($url);
-                $search = $nominatim
-                    ->newSearch()
-                    ->country($country)
-                    ->city($entity->city)
-                    ->postalCode($entity->zip)
-                    ->street($entity->address);
-                $result = $nominatim->find($search);
-
-                if (!empty($result)) {
-                    $entity->longitude = $result[0]['lon'];
-                    $entity->latitude = $result[0]['lat'];
-                }
-                #debug($search); debug($result); die();
-            }
-        }
-    }
-
-    public static function getStates()
-    {
-        $states = self::STATES;
-
-        $translatedStates = [];
-
-        foreach ($states as $country => $countryStates) {
-            $translatedStates[__($country)] = [];
-            foreach ($countryStates as $countryState) {
-                $translatedStates[__($country)][$countryState] = __($countryState);
-            }
-        }
-
-        return $translatedStates;
+        $this->geolocationTraitBeforeSave($event, $entity, $options);
     }
 }

@@ -26,20 +26,44 @@
             <table>
                 <tr>
                     <th><?= __('Slam') ?></th>
-                    <td><?= $date->has('slam') ? $this->Html->link($date->slam->title, ['controller' => 'Slams', 'action' => 'view', $date->slam->slug]) : '' ?></td>
-                </tr>
-                <tr>
+                    <td><?= $this->Html->link($date->slam->title, ['controller' => 'Slams', 'action' => 'view', $date->slam->slug]) ?></td>
                     <th><?= __('Starttime') ?></th>
                     <td><?= h($date->starttime ? $date->starttime->format('d.m.Y H:i') : __('???')) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Modified') ?></th>
-                    <td><?= h($date->modified->format('d.m.Y H:i')) ?></td>
+                    <th><?= __('Venue') ?></th>
+                    <td><?= $date->venue ? h($date->venue) : h($date->slam->venue) ?></td>
+                    <th><?= __('Moderator') ?></th>
+                    <td><?= h($date->moderator) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Address') ?></th>
+                    <td>
+                        <?php if ($date->address): ?>
+                            <?= h($date->address) ?><br>
+                            <?= h(trim($date->zip . ' ' . $date->city)); ?><br>
+                            <?= h(__($date->state)); ?>
+                        <?php else: ?>
+                            <?= h($date->slam->address) ?><br>
+                            <?= h(trim($date->slam->zip . ' ' . $date->slam->city)); ?><br>
+                            <?= h(__($date->slam->state)); ?>
+                        <?php endif; ?>
+                    </td>
+                    <th><?= __('Contact') ?></th>
+                    <td><?= $this->Text->autoParagraph($this->Text->autoLink(h($date->contact ?: $date->slam->contact), ['target' => '_blank'])); ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Www') ?></th>
+                    <td colspan="4"><?= $this->Text->autoLinkUrls(h($date->www ?: $date->slam->www), ['target' => '_blank']) ?></td>
                 </tr>
             </table>
+            <div class="text">
+                <h4><?= __('Description') ?></h4>
+                <?= $date->description ?: $date->slam->description; ?>
+            </div>
+            <?php if (!empty($date->files) || $currentUser) : ?>
             <div class="files">
                 <h4><?= __('Files') ?></h4>
-                <?php if (!empty($date->files)) : ?>
                 <div class="table-responsive">
                     <table>
                     <?php foreach ($date->files as $file) : ?>
@@ -50,13 +74,9 @@
                     <?php endforeach; ?>
                     </table>
                 </div>
-                <?php endif; ?>
-                <?php
-                    if ($currentUser) {
-                        echo $this->element('files/upload', ['date_id' => $date->id]);
-                    }
-                ?>
+                <?= $currentUser ? $this->element('files/upload', ['date_id' => $date->id]) : '' ?>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

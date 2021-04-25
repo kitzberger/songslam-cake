@@ -40,10 +40,13 @@
                 </tr>
                 <tr>
                     <th><?= __('Address') ?></th>
-                    <td colspan="3">
+                    <td>
                         <?= h($slam->address) ?><br>
-                        <?= h(trim($slam->zip . ' ' . $slam->city . ($slam->state?' ('.$slam->state.')':''))) ?>
+                        <?= h(trim($slam->zip . ' ' . $slam->city)); ?><br>
+                        <?= h(__($slam->state)); ?>
                     </td>
+                    <th><?= __('Contact') ?></th>
+                    <td><?= $this->Text->autoParagraph($this->Text->autoLink(h($slam->contact), ['target' => '_blank'])); ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Www') ?></th>
@@ -59,54 +62,51 @@
                 </tr>
                 <?php endif; ?>
             </table>
-            <div class="text">
-                <strong><?= __('Description') ?></strong>
-                <?= $slam->description; ?>
-            </div>
-            <?php if (!empty($slam->contact)): ?>
-            <div class="text">
-                <strong><?= __('Contact') ?></strong>
-                <?= $this->Text->autoParagraph($this->Text->autoLink(h($slam->contact), ['target' => '_blank'])); ?>
-            </div>
-            <?php endif; ?>
-            <div class="files">
-                <h4><?= __('Files') ?></h4>
-                <?php if (!empty($slam->files)) : ?>
-                <div class="table-responsive">
-                    <table>
-                    <?php foreach ($slam->files as $file) : ?>
-                        <tr>
-                            <th><?= h($file->title) ?></th>
-                            <td><?= $this->element('files/embed', ['file' => $file]) ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </table>
+            <?php if ($slam->description): ?>
+                <div class="text">
+                    <h4><?= __('Description') ?></h4>
+                    <?= $slam->description; ?>
                 </div>
-                <?php endif; ?>
-                <?php
-                    if ($currentUser) {
-                        echo $this->element('files/upload', ['slam_id' => $slam->id]);
-                    }
-                ?>
-            </div>
-            <div class="related">
-                <h4><?= __('Related Dates') ?></h4>
-                <?php if (!empty($slam->dates)) : ?>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Starttime') ?></th>
-                            <th><?= __('Title') ?></th>
-                        </tr>
-                        <?php foreach ($slam->dates as $date) : ?>
-                        <tr>
-                            <td><?= $this->Html->link($date->starttime ? $date->starttime->format('d.m.Y') : __('???'), ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
-                            <td><?= $this->Html->link($date->title ?: __('???'), ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
+            <?php endif ?>
+            <div class="row">
+                <div class="column related">
+                    <h4><?= __('Related Dates') ?></h4>
+                    <?php if (!empty($slam->dates)) : ?>
+                    <div class="table-responsive">
+                        <table>
+                            <tr>
+                                <th><?= __('Starttime') ?></th>
+                            </tr>
+                            <?php foreach ($slam->dates as $date) : ?>
+                            <tr>
+                                <td><?= $this->Html->link(
+                                    ($date->starttime ? $date->starttime->format('d.m.Y') : __('???')) . ($date->title ? ' - ' . $date->title : ''),
+                                    ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </table>
+                    </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
+                <div class="column files">
+                    <?php if (!empty($slam->files) || $currentUser) : ?>
+                        <h4><?= __('Files') ?></h4>
+                        <?php if (!empty($slam->files)) : ?>
+                        <div class="table-responsive">
+                            <table>
+                            <?php foreach ($slam->files as $file) : ?>
+                                <tr>
+                                    <th><?= h($file->title) ?></th>
+                                    <td><?= $this->element('files/embed', ['file' => $file]) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </table>
+                        </div>
+                        <?php endif; ?>
+                        <?= $currentUser ? $this->element('files/upload', ['slam_id' => $slam->id]) : '' ?>
+                    <?php endif ?>
+                </div>
             </div>
         </div>
     </div>

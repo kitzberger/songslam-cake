@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use App\Model\Table\Traits\GeolocationTrait;
+use App\Model\Table\Traits\StateTrait;
 use ArrayObject;
 use Cake\Event\EventInterface;
 use Cake\ORM\Query;
@@ -38,6 +40,8 @@ use SoftDelete\Model\Table\SoftDeleteTrait;
 class DatesTable extends Table
 {
     use SoftDeleteTrait;
+    use StateTrait;
+    use GeolocationTrait { beforeSave as geolocationTraitBeforeSave; }
 
     /**
      * Initialize method
@@ -83,11 +87,6 @@ class DatesTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('title')
-            ->maxLength('title', 255)
-            ->allowEmptyString('title');
-
-        $validator
             ->scalar('slug')
             ->maxLength('slug', 191)
             ->requirePresence('slug', 'update')
@@ -101,6 +100,60 @@ class DatesTable extends Table
         $validator
             ->dateTime('endtime')
             ->allowEmptyDateTime('endtime');
+
+        // Optional override fields
+        $validator
+            ->scalar('title')
+            ->maxLength('title', 255)
+            ->allowEmptyString('title');
+
+        $validator
+            ->scalar('moderator')
+            ->maxLength('moderator', 191)
+            ->allowEmptyString('moderator');
+
+        $validator
+            ->scalar('contact')
+            ->maxLength('contact', 191)
+            ->allowEmptyString('contact');
+
+        $validator
+            ->scalar('venue')
+            ->maxLength('venue', 191)
+            ->allowEmptyString('venue');
+
+        $validator
+            ->scalar('www')
+            ->maxLength('www', 191)
+            ->allowEmptyString('www');
+
+        $validator
+            ->scalar('address')
+            ->maxLength('address', 191)
+            ->allowEmptyString('address');
+
+        $validator
+            ->scalar('zip')
+            ->maxLength('zip', 5)
+            ->allowEmptyString('zip');
+
+        $validator
+            ->scalar('city')
+            ->maxLength('city', 191)
+            ->allowEmptyString('city');
+
+        $validator
+            ->scalar('state')
+            ->maxLength('state', 5)
+            ->allowEmptyString('state');
+
+        $validator
+            ->decimal('longitude')
+            ->allowEmptyString('longitude');
+
+        $validator
+            ->decimal('latitude')
+            ->allowEmptyString('latitude');
 
         return $validator;
     }
@@ -153,5 +206,7 @@ class DatesTable extends Table
             // trim slug to maximum length defined in schema
             $entity->slug = substr($sluggedTitle, 0, 191);
         }
+
+        $this->geolocationTraitBeforeSave($event, $entity, $options);
     }
 }
