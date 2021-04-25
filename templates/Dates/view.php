@@ -15,9 +15,8 @@
                         echo $this->Form->postLink(__('Delete Date'), ['action' => 'delete', $date->id], ['confirm' => __('Are you sure you want to delete # {0}?', $date->id), 'class' => 'side-nav-item']);
                         echo $this->Html->link(__('New Date'), ['action' => 'add', '?' => ['slam_id' => $date->slam_id]], ['class' => 'side-nav-item']);
                     }
-
-                    echo $this->Html->link(__('List Dates'), ['action' => 'index'], ['class' => 'side-nav-item']);
                 }
+                echo $this->Html->link(__('List Dates'), ['action' => 'index'], ['class' => 'side-nav-item']);
             ?>
         </div>
     </aside>

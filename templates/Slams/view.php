@@ -16,8 +16,9 @@
                     }
 
                     echo $this->Html->link(__('New Slam'), ['action' => 'add'], ['class' => 'side-nav-item']);
-                    echo $this->Html->link(__('List Slams'), ['action' => 'index'], ['class' => 'side-nav-item']);
                 }
+                echo $this->Html->link(__('New Date'), ['controller' => 'dates', 'action' => 'add', '?' => ['slam_id' => $slam->id]], ['class' => 'side-nav-item']);
+                echo $this->Html->link(__('List Slams'), ['action' => 'index'], ['class' => 'side-nav-item']);
             ?>
         </div>
     </aside>
