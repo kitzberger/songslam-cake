@@ -45,6 +45,7 @@ class Slam extends Entity
      */
     protected $_accessible = [
         'user_id' => true,
+        'type' => true,
         'title' => true,
         'slug' => true,
         'description' => true,

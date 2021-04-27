@@ -44,6 +44,16 @@ class SlamsTable extends Table
     use StateTrait;
     use GeolocationTrait { beforeSave as geolocationTraitBeforeSave; }
 
+    const TYPES = [
+        self::TYPE_SONGSLAM,
+        self::TYPE_OPENSTAGE,
+        self::TYPE_OTHER,
+    ];
+
+    const TYPE_SONGSLAM  = 'songslam';
+    const TYPE_OPENSTAGE = 'openstage';
+    const TYPE_OTHER     = 'other';
+
     /**
      * Initialize method
      *
@@ -95,6 +105,12 @@ class SlamsTable extends Table
         $validator
             ->integer('id')
             ->allowEmptyString('id', null, 'create');
+
+        $validator
+            ->scalar('type')
+            ->maxLength('type', 24)
+            ->requirePresence('title', 'create')
+            ->notEmptyString('type');
 
         $validator
             ->scalar('title')
@@ -192,5 +208,16 @@ class SlamsTable extends Table
         }
 
         $this->geolocationTraitBeforeSave($event, $entity, $options);
+    }
+
+    public function getTypes()
+    {
+        $types = [];
+
+        foreach (self::TYPES as $type) {
+            $types[$type] = __('songslam.type.' . $type);
+        }
+
+        return $types;
     }
 }

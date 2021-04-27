@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Form\SlamSuggestForm;
+use App\Model\Table\SlamsTable;
 use Cake\ORM\Query;
 
 /**
@@ -25,8 +26,9 @@ class SlamsController extends AppController
      */
     public function index()
     {
-        $sword = $this->request->getQuery('sword') ?: '';
-        $state = $this->request->getQuery('state') ?: '';
+        $sword    = $this->request->getQuery('sword') ?: '';
+        $state    = $this->request->getQuery('state') ?: '';
+        $type     = $this->request->getQuery('type') ?: SlamsTable::TYPE_SONGSLAM;
         $sleeping = $this->request->getQuery('sleeping') ?: false;
 
         $conditions = [];
@@ -44,6 +46,11 @@ class SlamsController extends AppController
                 'Slams.state' => $state,
             ];
         }
+        if ($type) {
+            $conditions[] = [
+                'Slams.type' => $type,
+            ];
+        }
         if ($sleeping === false) {
             $conditions[] = [
                 'Slams.sleeping' => false,
@@ -58,7 +65,7 @@ class SlamsController extends AppController
 
         $slams = $this->paginate($this->Slams);
 
-        $this->set(compact('slams', 'sword', 'state', 'sleeping'));
+        $this->set(compact('slams', 'sword', 'state', 'type', 'sleeping'));
     }
 
     /**

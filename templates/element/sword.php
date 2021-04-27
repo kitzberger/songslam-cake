@@ -1,9 +1,7 @@
 <form class="filter-form" method="GET">
     <div class="row">
-        <?php
-            if (isset($sword)):
-        ?>
-        <div class="column column-25">
+        <?php if (isset($sword)): ?>
+        <div class="column column-20">
             <?= $this->Form->control(
                 'sword',
                 [
@@ -15,20 +13,18 @@
                 ])
             ?>
         </div>
-        <?php
-            endif;
-        ?>
-        <?php
-            if (isset($state)):
-        ?>
-        <div class="column column-25">
+        <?php endif; ?>
+        <?php if (isset($state)): ?>
+        <div class="column column-20">
             <?= $this->Form->control('state', ['label' => __('State'), 'options' => [null => ''] + \App\Model\Table\SlamsTable::getStates(), 'value' => $state]) ?>
         </div>
-        <?php
-            endif;
-        ?>
-        <?php
-            if (isset($sleeping)):
+        <?php endif; ?>
+        <?php if (isset($type)): ?>
+        <div class="column column-20">
+            <?= $this->Form->control('type', ['label' => __('Type'), 'options' => \App\Model\Table\SlamsTable::getTypes(), 'value' => $type]) ?>
+        </div>
+        <?php endif; ?>
+        <?php if (isset($sleeping)):
               $this->Form->setTemplates([
                     'nestingLabel' => '<label{{attrs}}>{{text}}</label>{{hidden}}{{input}}',
                 ]);
@@ -36,10 +32,8 @@
         <div class="column column-20">
             <?= $this->Form->control('sleeping', ['label' => __('Include sleeping?'), 'value' => true, 'checked' => $sleeping]) ?>
          </div>
-        <?php
-            endif;
-        ?>
-        <div class="column column-30">
+        <?php endif; ?>
+        <div class="column column-20">
             <input type="submit" value="<?= __('Filter') ?>" class="button button-outline" />
         </div>
     </div>
