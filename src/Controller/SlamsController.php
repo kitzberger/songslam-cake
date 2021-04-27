@@ -94,6 +94,7 @@ class SlamsController extends AppController
         }
 
         $this->paginate = [
+            'limit' => 200,
             'contain' => ['Users'],
             'order' => ['Slams.state ASC', 'Slams.city ASC'],
             'conditions' => $conditions,
