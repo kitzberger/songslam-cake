@@ -28,7 +28,7 @@ class SlamsController extends AppController
     {
         $sword    = $this->request->getQuery('sword') ?: '';
         $state    = $this->request->getQuery('state') ?: '';
-        $type     = $this->request->getQuery('type') ?: SlamsTable::TYPE_SONGSLAM;
+        $type     = $this->request->getQuery('type') ?? SlamsTable::TYPE_SONGSLAM;
         $sleeping = $this->request->getQuery('sleeping') ?: false;
 
         $conditions = [];
