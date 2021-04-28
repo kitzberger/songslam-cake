@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\Table\SlamsTable;
 use Cake\ORM\Query;
 
 /**
@@ -24,8 +25,9 @@ class DatesController extends AppController
      */
     public function index()
     {
-        $sword = $this->request->getQuery('sword') ?: '';
-        $state = $this->request->getQuery('state') ?: '';
+        $sword    = $this->request->getQuery('sword') ?: '';
+        $state    = $this->request->getQuery('state') ?: '';
+        $type     = $this->request->getQuery('type') ?? SlamsTable::TYPE_SONGSLAM;
         $sleeping = $this->request->getQuery('sleeping') ?: false;
 
         $conditions = [];
@@ -43,6 +45,11 @@ class DatesController extends AppController
                 'Slams.state' => $state,
             ];
         }
+        if ($type) {
+            $conditions[] = [
+                'Slams.type' => $type,
+            ];
+        }
         if ($sleeping === false) {
             $conditions[] = [
                 'Dates.starttime >' => new \DateTime(),
@@ -58,7 +65,7 @@ class DatesController extends AppController
 
         $dates = $this->paginate($this->Dates);
 
-        $this->set(compact('dates', 'sword', 'state', 'sleeping'));
+        $this->set(compact('dates', 'sword', 'state', 'type', 'sleeping'));
     }
 
     /**
