@@ -4,6 +4,10 @@ a {
     color: #404041;
 }
 
+td a {
+    color: #3c9ad3;
+}
+
 /* Utility */
 .table-responsive {
     display: block;
