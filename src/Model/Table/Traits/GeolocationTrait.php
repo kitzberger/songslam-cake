@@ -14,6 +14,7 @@ trait GeolocationTrait
                 case 'AT': $country = 'Austria'; break;
                 case 'CH': $country = 'Switzerland'; break;
                 case 'DE': $country = 'Germany'; break;
+                default:   $country = 'Germany';
             }
 
             if ($entity->address && $entity->city) {
