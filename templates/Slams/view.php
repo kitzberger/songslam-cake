@@ -76,12 +76,16 @@
                         <table>
                             <tr>
                                 <th><?= __('Starttime') ?></th>
+                                <th></th>
                             </tr>
                             <?php foreach ($slam->dates as $date) : ?>
-                            <tr>
+                            <tr class="<?= $date->starttime && $date->starttime->isPast() ? 'inactive' : '' ?>">
                                 <td><?= $this->Html->link(
                                     ($date->starttime ? $date->starttime->format('d.m.Y') : __('???')) . ($date->title ? ' - ' . $date->title : ''),
                                     ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?>
+                                </td>
+                                <td>
+                                    <?= $date->venue ? h($date->venue) : '' ?>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
