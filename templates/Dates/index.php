@@ -26,8 +26,8 @@
                 <tr>
                     <td><?= $this->Html->link($date->starttime->format('d.m.Y'), ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
                     <td><?= $this->Html->link($date->title ?: ($date->has('slam') ? $date->slam->title : __('???')), ['controller' => 'Dates', 'action' => 'view', $date->slug]) ?></td>
-                    <td><?= $date->has('slam') ? $date->slam->city : '' ?></td>
-                    <td><?= $date->has('slam') ? $date->slam->venue : '' ?></td>
+                    <td><?= $date->city ? h($date->city) : ($date->has('slam') ? h($date->slam->city) : '') ?></td>
+                    <td><?= $date->venue ? h($date->venue) : ($date->has('slam') ? h($date->slam->venue) : '') ?></td>
                     <?php if($currentUser): ?>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $date->slug]) ?>
