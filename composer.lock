@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62966d9f95d290202c6a63d370d40faf",
+    "content-hash": "cc1a93ed78f293733f7fe1604bab0fdc",
     "packages": [
         {
             "name": "admad/cakephp-glide",
@@ -66,16 +66,16 @@
         },
         {
             "name": "cakecoded/ckeditor",
-            "version": "dev-cleanup",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kitzberger/CkEditor.git",
-                "reference": "5520ea67c7a64afcca1448ec410e6dd6a3f250f0"
+                "url": "https://github.com/CakeCoded/CkEditor.git",
+                "reference": "a93b611e45a2624d901e03cdb54ba8cf3de240a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kitzberger/CkEditor/zipball/5520ea67c7a64afcca1448ec410e6dd6a3f250f0",
-                "reference": "5520ea67c7a64afcca1448ec410e6dd6a3f250f0",
+                "url": "https://api.github.com/repos/CakeCoded/CkEditor/zipball/a93b611e45a2624d901e03cdb54ba8cf3de240a7",
+                "reference": "a93b611e45a2624d901e03cdb54ba8cf3de240a7",
                 "shasum": ""
             },
             "require": {
@@ -85,23 +85,20 @@
             "require-dev": {
                 "phpunit/phpunit": "*"
             },
+            "default-branch": true,
             "type": "cakephp-plugin",
             "autoload": {
                 "psr-4": {
                     "CkEditor\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "CkEditor\\Test\\": "tests",
-                    "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "description": "CkEditor plugin for CakePHP 3.x & 4.x",
             "support": {
-                "source": "https://github.com/kitzberger/CkEditor/tree/cleanup"
+                "issues": "https://github.com/CakeCoded/CkEditor/issues",
+                "source": "https://github.com/CakeCoded/CkEditor/tree/master"
             },
-            "time": "2022-10-30T11:47:17+00:00"
+            "time": "2020-04-29T21:02:38+00:00"
         },
         {
             "name": "cakephp/authentication",
