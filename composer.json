@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=8.0",
         "admad/cakephp-glide": "4.0.0-beta",
         "cakecoded/ckeditor": "dev-cake4",
         "cakephp/authentication": "^2.1",
@@ -25,7 +25,7 @@
     },
     "require-dev": {
         "cakephp/bake": "^2.0.3",
-        "cakephp/cakephp-codesniffer": "~4.0.0",
+        "cakephp/cakephp-codesniffer": "~5.0.0",
         "cakephp/debug_kit": "^4.0",
         "phpunit/phpunit": "^8.5",
         "psy/psysh": "@stable"
