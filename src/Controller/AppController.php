@@ -53,7 +53,7 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Authentication.Authentication');
 
-        $this->viewBuilder()->setHelpers(['CkEditor.Ck']);
+        $this->viewBuilder()->addHelpers(['CkEditor.Ck']);
 
         /*
          * Enable the following component for recommended CakePHP form protection settings.

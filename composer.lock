@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f717892e554b061060937cc37914dec1",
+    "content-hash": "62966d9f95d290202c6a63d370d40faf",
     "packages": [
         {
             "name": "admad/cakephp-glide",
@@ -66,16 +66,16 @@
         },
         {
             "name": "cakecoded/ckeditor",
-            "version": "dev-cake4",
+            "version": "dev-cleanup",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kitzberger/CkEditor.git",
-                "reference": "5ea62b75d6dcc7ee280ba5d647ac4c96e2cd27b8"
+                "reference": "5520ea67c7a64afcca1448ec410e6dd6a3f250f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kitzberger/CkEditor/zipball/5ea62b75d6dcc7ee280ba5d647ac4c96e2cd27b8",
-                "reference": "5ea62b75d6dcc7ee280ba5d647ac4c96e2cd27b8",
+                "url": "https://api.github.com/repos/kitzberger/CkEditor/zipball/5520ea67c7a64afcca1448ec410e6dd6a3f250f0",
+                "reference": "5520ea67c7a64afcca1448ec410e6dd6a3f250f0",
                 "shasum": ""
             },
             "require": {
@@ -99,9 +99,9 @@
             },
             "description": "CkEditor plugin for CakePHP 3.x & 4.x",
             "support": {
-                "source": "https://github.com/kitzberger/CkEditor/tree/cake4"
+                "source": "https://github.com/kitzberger/CkEditor/tree/cleanup"
             },
-            "time": "2020-04-29T20:53:22+00:00"
+            "time": "2022-10-30T11:47:17+00:00"
         },
         {
             "name": "cakephp/authentication",
