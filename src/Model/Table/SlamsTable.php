@@ -210,7 +210,7 @@ class SlamsTable extends Table
         $this->geolocationTraitBeforeSave($event, $entity, $options);
     }
 
-    public function getTypes()
+    public static function getTypes()
     {
         $types = [];
 

@@ -57,7 +57,7 @@ class DatesController extends AppController
         }
 
         $this->paginate = [
-            'sortWhitelist' => ['Dates.starttime', 'Slams.city', 'Slams.venue'],
+            'sortableFields' => ['Dates.starttime', 'Slams.city', 'Slams.venue'],
             'contain' => ['Users', 'Slams', 'Slams.Users'],
             'order' => ['Dates.starttime' => 'ASC'],
             'conditions' => $conditions,
