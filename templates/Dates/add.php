@@ -32,7 +32,7 @@
                     echo $this->Form->hidden('starttime', ['id' => 'starttime']);
                 ?>
                 <div class="row">
-                    <div class="column"><?= $this->Form->control('date', ['empty' => true, 'type' => 'date']); ?></div>
+                    <div class="column"><?= $this->Form->control('date', ['empty' => true, 'type' => 'date', 'autofocus' => 1]); ?></div>
                     <div class="column"><?= $this->Form->control('time', ['empty' => true, 'step' => 60, 'value' => '20:00', 'type' => 'time']); ?></div>
                 </div>
                 <?= $this->Form->control('moderator'); ?>
@@ -57,8 +57,8 @@
                 <?= $this->Form->control('www'); ?>
             </fieldset>
             <?= $this->Form->hidden('saveAndNew', ['value' => 0, 'id' => 'saveAndNew']) ?>
-            <?= $this->Form->button(__('Submit and back'), ['onclick' => 'return setHiddenFields(0)']) ?>
-            <?= $this->Form->button(__('Submit and new'), ['onclick' => 'return setHiddenFields(1)']) ?>
+            <?= $this->Form->button(__('Submit and another one'), ['onclick' => 'return setHiddenFields(1)']) ?>
+            <?= $this->Form->button(__('Submit and back'), ['onclick' => 'return setHiddenFields(0)', 'class' => 'button-outline']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
