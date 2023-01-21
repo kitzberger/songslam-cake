@@ -25,10 +25,10 @@ class DatesController extends AppController
      */
     public function index()
     {
-        $sword    = $this->request->getQuery('sword') ?: '';
-        $state    = $this->request->getQuery('state') ?: '';
-        $type     = $this->request->getQuery('type') ?? SlamsTable::TYPE_SONGSLAM;
-        $sleeping = $this->request->getQuery('sleeping') ?: false;
+        $sword = $this->request->getQuery('sword') ?: '';
+        $state = $this->request->getQuery('state') ?: '';
+        $type  = $this->request->getQuery('type') ?? SlamsTable::TYPE_SONGSLAM;
+        $past  = $this->request->getQuery('past') ?: false;
 
         $conditions = [];
         if ($sword) {
@@ -50,7 +50,7 @@ class DatesController extends AppController
                 'Slams.type' => $type,
             ];
         }
-        if ($sleeping === false) {
+        if ($past === false) {
             $conditions[] = [
                 'Dates.starttime >' => new \DateTime(),
             ];
@@ -65,7 +65,7 @@ class DatesController extends AppController
 
         $dates = $this->paginate($this->Dates);
 
-        $this->set(compact('dates', 'sword', 'state', 'type', 'sleeping'));
+        $this->set(compact('dates', 'sword', 'state', 'type', 'past'));
     }
 
     /**

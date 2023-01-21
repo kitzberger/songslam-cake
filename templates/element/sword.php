@@ -65,7 +65,24 @@
                     'onchange' => 'this.form.submit()'
                 ]
             ) ?>
-         </div>
+        </div>
+        <?php endif; ?>
+        <?php if (isset($past)):
+              $this->Form->setTemplates([
+                    'nestingLabel' => '<label{{attrs}}>{{text}}</label>{{hidden}}{{input}}',
+                ]);
+        ?>
+        <div class="column column-20">
+            <?= $this->Form->control(
+                'past',
+                [
+                    'label' => __('Include past?'),
+                    'value' => true,
+                    'checked' => $past,
+                    'onchange' => 'this.form.submit()'
+                ]
+            ) ?>
+        </div>
         <?php endif; ?>
         <noscript>
             <div class="column column-20">

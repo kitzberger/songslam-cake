@@ -703,6 +703,10 @@ msgstr ""
 msgid "Include sleeping?"
 msgstr ""
 
+#: element/sword.php:37
+msgid "Include past?"
+msgstr ""
+
 #: element/sword.php:43
 msgid "Filter"
 msgstr ""

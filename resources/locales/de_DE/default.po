@@ -705,6 +705,10 @@ msgstr "Bundesland"
 msgid "Include sleeping?"
 msgstr "Eingeschlafene miteinschließen?"
 
+#: element/sword.php:37
+msgid "Include past?"
+msgstr "Vergangene miteinschließen?"
+
 #: element/sword.php:43
 msgid "Filter"
 msgstr ""
